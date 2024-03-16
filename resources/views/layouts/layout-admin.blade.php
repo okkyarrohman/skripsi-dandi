@@ -110,7 +110,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <a href="javascript:void(0);" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
                 <div class="badge bg-primary rounded-pill ms-auto"></div>
@@ -144,42 +144,42 @@
               </ul> --}}
             </li>
             <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <a href="javascript:void(0);" class="menu-link">
                   <i class="menu-icon tf-icons gg-menu-grid-o"></i>
                   <div data-i18n="Menu">Menu</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <a href="javascript:void(0);" class="menu-link">
                   <i class="menu-icon tf-icons ti ti-smart-home"></i>
                   <div data-i18n="Bahan">Bahan</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <a href="javascript:void(0);" class="menu-link">
                   <i class="menu-icon tf-icons ti ti-smart-home"></i>
                   <div data-i18n="BOM">BOM</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <a href="javascript:void(0);" class="menu-link">
                   <i class="menu-icon tf-icons ti ti-smart-home"></i>
                   <div data-i18n="MPS">MPS</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <a href="javascript:void(0);" class="menu-link">
                   <i class="menu-icon tf-icons ti ti-smart-home"></i>
                   <div data-i18n="MRP">MRP</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle" style="margin-right:0%;">
+                <a href="javascript:void(0);" class="menu-link" style="margin-right:0%;">
                   <i class="menu-icon tf-icons ti ti-smart-home"></i>
                   <div data-i18n="Laporan Perencanaan">Laporan Perencanaan</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
