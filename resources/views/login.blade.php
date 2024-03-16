@@ -42,15 +42,16 @@
               <h4 class="mb-1 pt-2">Welcome</h4>
               <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="GET">
+              <form class="mb-3" action="/dashboard" method="POST">
+                @csrf
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input
                     type="text"
                     class="form-control"
                     id="email"
-                    name="email-username"
-                    placeholder="Enter your email or username"
+                    name="email"
+                    placeholder="Enter your email"
                     autofocus />
                 </div>
                 <div class="mb-3 form-password-toggle">
@@ -78,7 +79,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button class="btn d-grid w-100" type="submit" style="background-color: #004ae1; color:white;">Sign in</button>
+                  <button class="btn d-grid w-100" type="submit" name="submit" style="background-color: #004ae1; color:white;">Sign in</button>
                 </div>
               </form>
 
