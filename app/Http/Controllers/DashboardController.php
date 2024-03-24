@@ -10,7 +10,9 @@ class DashboardController extends Controller
     //     return view('/dashboard')->with('success','Success login');
     // }
 
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         return view('dashboard.dashboard');
     }
+
 }

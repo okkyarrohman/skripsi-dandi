@@ -31,8 +31,6 @@
     <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css" />
     <link rel="stylesheet" href="../../assets/vendor/fonts/tabler-icons.css" />
     <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" />
-    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu-grid-o.css' rel='stylesheet'>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
@@ -109,78 +107,52 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div data-i18n="Dashboards">Dashboards</div>
-                <div class="badge bg-primary rounded-pill ms-auto"></div>
-              </a>
-              {{-- <ul class="menu-sub">
-                <li class="menu-item active">
-                  <a href="index.html" class="menu-link">
-                    <div data-i18n="Analytics">Analytics</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="dashboards-crm.html" class="menu-link">
-                    <div data-i18n="CRM">CRM</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="app-ecommerce-dashboard.html" class="menu-link">
-                    <div data-i18n="eCommerce">eCommerce</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="app-logistics-dashboard.html" class="menu-link">
-                    <div data-i18n="Logistics">Logistics</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="app-academy-dashboard.html" class="menu-link">
-                    <div data-i18n="Academy">Academy</div>
-                  </a>
-                </li>
-              </ul> --}}
-            </li>
-            <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link">
-                  <i class="menu-icon tf-icons gg-menu-grid-o"></i>
-                  <div data-i18n="Menu">Menu</div>
-                  <div class="badge bg-primary rounded-pill ms-auto"></div>
+            <li class="menu-item {{ Request::is('dashboard*') ? 'active' : '' }}">
+                <a href="{{ route('dashboard.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons"></i>
+                    <div data-i18n="Dashboards">Dashboards</div>
+                    <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link">
-                  <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <li class="menu-item {{ Request::is('menu*') ? 'active' : '' }}">
+                <a href="{{ route('menu.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons"></i>
+                    <div data-i18n="Menu">Menu</div>
+                    <div class="badge bg-primary rounded-pill ms-auto"></div>
+                </a>
+            </li>
+
+            <li class="menu-item {{ Request::is('bahan*') ? ' active' : '' }}">
+                <a href="{{ route('bahan.index') }}" class="menu-link">
+                  <i class="menu-icon tf-icons"></i>
                   <div data-i18n="Bahan">Bahan</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link">
-                  <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <li class="menu-item {{ Request::is('bom*') ? ' active' : '' }}">
+                <a href="{{ route('bom.index') }}" class="menu-link">
+                  <i class="menu-icon tf-icons"></i>
                   <div data-i18n="BOM">BOM</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link">
-                  <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <li class="menu-item {{ Request::is('mps*') ? ' active' : '' }}">
+                <a href="#" class="menu-link">
+                  <i class="menu-icon tf-icons"></i>
                   <div data-i18n="MPS">MPS</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link">
-                  <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <li class="menu-item {{ Request::is('mrp*') ? ' active' : '' }}">
+                <a href="#" class="menu-link">
+                  <i class="menu-icon tf-icons"></i>
                   <div data-i18n="MRP">MRP</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link" style="margin-right:0%;">
-                  <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <li class="menu-item {{ Request::is('laporan-perencanaan*') ? ' active' : '' }}">
+                <a href="#" class="menu-link" style="margin-right:0%;">
+                  <i class="menu-icon tf-icons"></i>
                   <div data-i18n="Laporan Perencanaan">Laporan Perencanaan</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
@@ -261,7 +233,6 @@
                   </ul>
                 </li>
                 <!-- / Style Switcher-->
-
 
                 <!-- Notification -->
                 <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
@@ -524,7 +495,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-medium d-block">John Doe</span>
+                            <span class="fw-medium d-block">Dandi Arsyi</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
@@ -540,10 +511,7 @@
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="pages-account-settings-account.html">
-                        <i class="ti ti-settings me-2 ti-sm"></i>
-                        <span class="align-middle">Settings</span>
-                      </a>
+                      <div class="dropdown-divider"></div>
                     </li>
                     <li>
                       <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
@@ -590,6 +558,7 @@
                       document.write(new Date().getFullYear());
                     </script>
                   </div>
+
                 </div>
               </div>
             </footer>
