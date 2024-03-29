@@ -13,7 +13,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Vuexy - Bootstrap Admin Template</title>
+    <title>Teh Barbar Apps</title>
 
     <meta name="description" content="" />
 
@@ -49,13 +49,11 @@
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="../../assets/vendor/css/pages/cards-advance.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Helpers -->
     <script src="../../assets/vendor/js/helpers.js"></script>
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
     <script src="../../assets/vendor/js/template-customizer.js"></script>
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
   </head>
 
@@ -137,47 +135,19 @@
                 </a>
             </li>
             <li class="menu-item {{ Request::is('mps*') ? ' active' : '' }}">
-                <a href="#" class="menu-link">
+                <a href="{{ route('mps.index') }}" class="menu-link">
                   <i class="menu-icon tf-icons"></i>
                   <div data-i18n="MPS">MPS</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
             <li class="menu-item {{ Request::is('mrp*') ? ' active' : '' }}">
-                <a href="#" class="menu-link">
+                <a href="{{ route('mrp.index') }}" class="menu-link">
                   <i class="menu-icon tf-icons"></i>
                   <div data-i18n="MRP">MRP</div>
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
-            <li class="menu-item {{ Request::is('laporan-perencanaan*') ? ' active' : '' }}">
-                <a href="#" class="menu-link" style="margin-right:0%;">
-                  <i class="menu-icon tf-icons"></i>
-                  <div data-i18n="Laporan Perencanaan">Laporan Perencanaan</div>
-                  <div class="badge bg-primary rounded-pill ms-auto"></div>
-                </a>
-            </li>
-
-
-            {{-- <!-- Charts & Maps -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-chart-pie"></i>
-                <div data-i18n="Charts">Charts</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="charts-apex.html" class="menu-link">
-                    <div data-i18n="Apex Charts">Apex Charts</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="charts-chartjs.html" class="menu-link">
-                    <div data-i18n="ChartJS">ChartJS</div>
-                  </a>
-                </li>
-              </ul>
-            </li> --}}
           </ul>
         </aside>
         <!-- / Menu -->
@@ -505,16 +475,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="pages-profile-user.html">
-                        <i class="ti ti-user-check me-2 ti-sm"></i>
-                        <span class="align-middle">My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
+                      <a class="dropdown-item" href="/" target="_blank">
                         <i class="ti ti-logout me-2 ti-sm"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
