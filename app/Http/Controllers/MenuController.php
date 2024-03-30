@@ -40,15 +40,13 @@ class MenuController extends Controller
         return redirect()->route('menu.index');
     }
 
-    public function edit($id)
+
+
+    public function show($id)
     {
         $menus = Menu::where('id', $id)->first();
 
         return view('menu.detail', compact('menus'));
-    }
-
-    public function show($id)
-    {
     }
 
 
