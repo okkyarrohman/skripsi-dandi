@@ -6,23 +6,24 @@
             <div class="card-body" style="justify-content: left;">
                 <div style="font-size: 24px; margin-bottom: 10px;">Tambah Bahan</div>
                 <hr style="border: 1px solid #868181; margin-bottom: 10px;">
-                <form class="form-horizontal" action="#" method="POST">
+                <form class="form-horizontal" action="{{route('bahan.store')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div style="font-size: 16px; margin-bottom: 10px;">Nama</div>
                     <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                        <input type="text" class="form-control" placeholder="Nama" aria-describedby="basic-addon-search31">
+                        <input type="text" name="name" class="form-control" placeholder="Nama" aria-describedby="basic-addon-search31">
                     </div>
                     <div style="font-size: 16px; margin-bottom: 10px;">Satuan</div>
                     <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                        <select class="form-select" name="satuan" id="exampleFormControlSelect1" aria-label="Default select example">
                             <option selected="">Pilih Satuan</option>
-                            <option value="1">Pcs</option>
-                            <option value="2">Gram</option>
-                            <option value="3">Kg</option>
+                            <option value="Pcs">Pcs</option>
+                            <option value="Gram">Gram</option>
+                            <option value="Kg">Kg</option>
                           </select>
                     </div>
                     <div style="font-size: 16px; margin-bottom: 10px;">Stok</div>
                     <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                        <input type="text" class="form-control" placeholder="Stok"  aria-describedby="basic-addon-search31">
+                        <input type="text" name="stokAwal" class="form-control" placeholder="Stok"  aria-describedby="basic-addon-search31">
                     </div>
 
                     <div style="text-align: left; justify-content:space-between; margin-top:3%;">

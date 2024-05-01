@@ -39,7 +39,11 @@ Route::get('/menu/{id}', [MenuController::class, 'destroy'])->name('menu.destroy
 #Bahan
 Route::get('/bahan', [BahanController::class, 'index'])->name('bahan.index');
 Route::get('/bahan/tambah', [BahanController::class, 'create'])->name('bahan.create');
-Route::get('/bahan/update', [BahanController::class, 'update'])->name('bahan.update');
+Route::post('/bahan/tambah', [BahanController::class, 'store'])->name('bahan.store');
+Route::get('/bahan/{id}/update', [BahanController::class, 'show'])->name('bahan.show');
+Route::put('/bahan/{id}/update', [BahanController::class, 'update'])->name('bahan.update');
+Route::get('/bahan/{id}', [BahanController::class, 'destroy'])->name('bahan.destroy');
+
 
 #BOM
 Route::get('/bom', [BomController::class, 'index'])->name('bom.index');

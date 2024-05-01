@@ -8,7 +8,7 @@
                     <div style="width: 60%;">
                         <div style="font-size: 24px; margin-bottom: 10px;">Detail Menu</div>
                         <hr style="border: 1px solid #868181; margin-bottom: 10px;">
-                        <form class="form-horizontal" action="#" method="POST" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{ route('menu.update', ['id' => $menus->id]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div style="font-size: 16px; margin-bottom: 10px;">Nama</div>
