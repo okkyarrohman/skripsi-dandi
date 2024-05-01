@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MpsController;
 use App\Http\Controllers\MrpController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+#Auth
+Route::get('/', [SessionController::class, 'index'])->name('login.index');
+Route::post('/', [SessionController::class, 'login'])->name('login');
 
 # Dasboard
 Route::post('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -30,8 +31,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 #Menu
 Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
 Route::get('/menu/tambah', [MenuController::class, 'create'])->name('menu.create');
-Route::get('/menu/show', [MenuController::class, 'show'])->name('menu.show');
-Route::get('/menu/update', [MenuController::class, 'update'])->name('menu.update');
+Route::post('/menu/tambah', [MenuController::class, 'store'])->name('menu.store');
+Route::get('/menu/{id}/show', [MenuController::class, 'show'])->name('menu.show');
+Route::put('/menu/{id}/show', [MenuController::class, 'update'])->name('menu.update');
+Route::get('/menu/{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
 
 #Bahan
 Route::get('/bahan', [BahanController::class, 'index'])->name('bahan.index');

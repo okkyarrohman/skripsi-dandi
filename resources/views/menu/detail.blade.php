@@ -8,22 +8,24 @@
                     <div style="width: 60%;">
                         <div style="font-size: 24px; margin-bottom: 10px;">Detail Menu</div>
                         <hr style="border: 1px solid #868181; margin-bottom: 10px;">
-                        <form class="form-horizontal" action="#" method="POST">
+                        <form class="form-horizontal" action="#" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
                             <div style="font-size: 16px; margin-bottom: 10px;">Nama</div>
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                                <input type="text" class="form-control" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp">
+                                <input type="text" name="name" value="{{$menus->name}}" class="form-control" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp">
                             </div>
                             <div style="font-size: 16px; margin-bottom: 10px;">Harga</div>
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                                <input type="text" class="form-control" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp">
+                                <input type="text" name="harga" value="{{$menus->harga}}" class="form-control" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp">
                             </div>
                             <div style="font-size: 16px; margin-bottom: 10px;">Deskripsi</div>
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                                <textarea type="text" class="form-control" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp"></textarea>
+                                <textarea type="text" name="deskripsi" class="form-control" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp">{{$menus->deskripsi}}</textarea>
                             </div>
                             <div style="font-size: 16px; margin-bottom: 10px;">Upload foto</div>
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                                <input type="file" class="form-control" id="inputGroupFile02">
+                                <input type="file" name="foto" class="form-control" id="inputGroupFile02">
                             </div>
 
                             <div style="text-align: left; justify-content:space-between; margin-top:3%;">
@@ -33,7 +35,7 @@
                         </form>
                     </div>
                     <div style="width: 40%; display: flex; justify-content: flex-end; align-items: center;">
-                        <img src="{{asset('assets/img/pages/jkt.jpeg')}}" alt="Gambar Kanan" style="max-width: 100%; margin-left: 20px;">
+                        <img src="{{ asset('foto/' . $menus->foto) }}" alt="Foto"style="max-width: 100%; margin-left: 20px; object-fit: cover;">
                     </div>
                 </div>
 
