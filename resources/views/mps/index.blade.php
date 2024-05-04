@@ -5,25 +5,24 @@
     <div class="w-full">
         <span class="card shadow text-decoration-none" style="display: flex; ">
             <div class="card-body" style="justify-content: left;">
-                <form class="form-horizontal" action="#" method="POST">
-                    {{-- <div style="font-size: 20px; margin-bottom: 10px;">Cari MPS</div> --}}
+                <form class="form-horizontal" action="{{ route('mps.index') }}" method="GET">
                     <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px; display: flex; align-items: center;">
                         <div style="flex: 1;">
                             <div style="font-size: 16px; margin-bottom: 10px;">Tanggal awal</div>
-                            <input class="form-control" type="date" value="2021-06-18" id="html5-date-input">
+                            <input name="tanggal_awal" class="form-control" type="date" value="" id="html5-date-input">
                         </div>
-                        <div style="margin: 0 4px;">
-                        </div>
+                        <div style="margin: 0 4px;"></div>
                         <div style="flex: 1;">
                             <div style="font-size: 16px; margin-bottom: 10px;">Tanggal akhir</div>
-                            <input class="form-control" type="date" value="2021-06-18" id="html5-date-input">
+                            <input name="tanggal_akhir" class="form-control" type="date" value="" id="html5-date-input">
                         </div>
                     </div>
                     <div style="text-align: left; justify-content:space-between">
-                        <button type="button" class="btn  btn-delete" style="background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Cari</button>
-                        <a href="{{ route('mps.create') }}"class="btn  btn-delete" type="button" style=" background-color: #4f60e0; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Tambah</a>
+                        <button type="submit" class="btn btn-delete" style="background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Cari</button>
+                        <a href="{{ route('mps.create') }}" class="btn btn-delete" type="button" style="background-color: #4f60e0; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Tambah</a>
                     </div>
                 </form>
+
             </div>
         </span>
     </div>
@@ -43,20 +42,27 @@
         @php
             $i=1;
         @endphp
+        @if($mps->count() > 0)
+            @foreach ($mps as $mps)
+                <tr>
+                    <td>{{ $i++ }}</td>
+                    <td>{{ $mps->tanggal }}</td>
+                    <td>{{ $mps->menu->name }}</td>
+                    <td>{{ $mps->jumlah }}</td>
+                    <td>
+                        <div style="display: flex; justify-content: center;">
+                            <a href="{{ route('mps.show', ['id' => $mps->id]) }}" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Update</a>
+                            <div style="width: 20px;"></div> <!-- Separator -->
+                            <a href="{{ route('mps.destroy', ['id' => $mps->id]) }}" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+        @else
             <tr>
-                <td>{{ $i++ }}</td>
-                <td>2024-04-01</td>
-                <td>AAAAAA</td>
-                <td>12 Gelas</td>
-                <td>
-                    <div style="display: flex; justify-content: center;">
-                        <a href="{{ route('mps.update') }}" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Update</a>
-                        <div style="width: 20px;"></div> <!-- Separator -->
-                        <a href="#" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a>
-                    </div>
-                </td>
+                <td class="text-center" colspan="5">Mps not found</td>
             </tr>
-            <!-- Tambahkan baris sesuai data yang ada -->
+        @endif
     </tbody>
 </table>
 

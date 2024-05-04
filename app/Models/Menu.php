@@ -14,4 +14,14 @@ class Menu extends Model
         'deskripsi',
         'foto',
     ];
+
+    public function boms()
+    {
+        return $this->hasMany(Bom::class, 'menu_id');
+    }
+
+    public function mps()
+    {
+        return $this->hasMany(Mps::class, 'menu_id');
+    }
 }

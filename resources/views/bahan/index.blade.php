@@ -42,7 +42,7 @@
                     <td>{{ $bahan->stokAkhir }} {{$bahan->satuan}}</td>
                     <td>
                         <div style="display: flex; justify-content: center;">
-                            <a href="{{ route('bahan.show', ['id' => $bahan->id]) }}" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Detail</a>
+                            <a href="{{ route('bahan.show', ['id' => $bahan->id]) }}" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Update</a>
                             <div style="width: 20px;"></div> <!-- Separator -->
                             <a href="{{ route('bahan.destroy', ['id' => $bahan->id]) }}" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a>
                         </div>

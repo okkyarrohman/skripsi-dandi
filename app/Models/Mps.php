@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bahan extends Model
+class Mps extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'satuan',
-        'stokAwal',
-        'stokAkhir',
+        'menu_id',
+        'tanggal',
+        'jumlah',
     ];
 
-    public function boms()
+    public function menu()
     {
-        return $this->hasMany(Bom::class, 'bahan_id');
+        return $this->belongsTo(Menu::class, 'menu_id');
     }
 }

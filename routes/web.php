@@ -48,12 +48,19 @@ Route::get('/bahan/{id}', [BahanController::class, 'destroy'])->name('bahan.dest
 #BOM
 Route::get('/bom', [BomController::class, 'index'])->name('bom.index');
 Route::get('/bom/tambah', [BomController::class, 'create'])->name('bom.create');
-Route::get('/bom/update', [BomController::class, 'update'])->name('bom.update');
+Route::post('/bom/tambah', [BomController::class, 'store'])->name('bom.store');
+Route::get('/bom/{id}/update', [BomController::class, 'show'])->name('bom.show');
+Route::put('/bom/{id}/update', [BomController::class, 'update'])->name('bom.update');
+Route::get('/bom/{id}', [BomController::class, 'destroy'])->name('bom.destroy');
 
 #MPS
 Route::get('/mps', [MpsController::class, 'index'])->name('mps.index');
 Route::get('/mps/tambah', [MpsController::class, 'create'])->name('mps.create');
-Route::get('/mps/update', [MpsController::class, 'update'])->name('mps.update');
+Route::post('/mps/tambah', [MpsController::class, 'store'])->name('mps.store');
+Route::get('/mps/{id}/update', [MpsController::class, 'show'])->name('mps.show');
+Route::put('/mps/{id}/update', [MpsController::class, 'update'])->name('mps.update');
+Route::get('/mps/{id}', [MpsController::class, 'destroy'])->name('mps.destroy');
+
 
 #MRP
 Route::get('/mrp', [MrpController::class, 'index'])->name('mrp.index');

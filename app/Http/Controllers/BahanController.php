@@ -73,4 +73,12 @@ class BahanController extends Controller
 
         return redirect()->route('bahan.index')->with('success', 'Bahan berhasil disimpan.');
     }
+
+    public function destroy($id)
+    {
+        $bahans = Bahan::find($id);
+        $bahans->delete();
+
+        return redirect()->route('bahan.index')->with('success', 'Bahan berhasil dihapus.');
+    }
 }
