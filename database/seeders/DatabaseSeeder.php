@@ -20,6 +20,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call([
+            MenuSeeder::class,
+            // tambahkan seeder lain jika ada
+        ]);
+
+        $this->call([
+            BahanSeeder::class,
+            // tambahkan seeder lain jika ada
+        ]);
         DB::table('users')->insert([
             'name'=>'RafiAnwar',
             'email' => 'email@gmail.com',

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('satuan');
             $table->string('stokAwal');
             $table->string('stokAkhir')->nullable();
+            $table->date('jadwalPenerimaan');
+            $table->date('jadwalKedatangan')->nullable();
             $table->timestamps();
         });
     }

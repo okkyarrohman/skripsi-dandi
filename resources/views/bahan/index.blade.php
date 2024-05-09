@@ -26,6 +26,8 @@
             <th>No</th>
             <th>Nama Bahan</th>
             <th>Stok</th>
+            <th>Estimasi Jadwal Penerimaan</th>
+            <th>Jadwal Kedatangan</th>
             <th style="text-align: center;">Action</th>
         </tr>
     </thead>
@@ -40,6 +42,8 @@
                     <td>{{ $i++ }}</td>
                     <td>{{ $bahan->name }}</td>
                     <td>{{ $bahan->stokAkhir }} {{$bahan->satuan}}</td>
+                    <td>{{ $bahan->jadwalPenerimaan }}</td>
+                    <td>{{ $bahan->jadwalKedatangan }}</td>
                     <td>
                         <div style="display: flex; justify-content: center;">
                             <a href="{{ route('bahan.show', ['id' => $bahan->id]) }}" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Update</a>
@@ -51,7 +55,7 @@
             @endforeach
         @else
             <tr>
-                <td class="text-center" colspan="4">Bahan not found</td>
+                <td class="text-center" colspan="6">Bahan not found</td>
             </tr>
         @endif
     </tbody>

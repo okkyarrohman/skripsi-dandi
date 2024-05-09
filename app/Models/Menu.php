@@ -24,4 +24,11 @@ class Menu extends Model
     {
         return $this->hasMany(Mps::class, 'menu_id');
     }
+
+    public function mrp()
+    {
+        return $this->hasMany(Mrp::class, 'menu_id');
+    }
+
+
 }

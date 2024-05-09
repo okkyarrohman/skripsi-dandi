@@ -11,19 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mps', function (Blueprint $table) {
+        Schema::create('mrps', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('bom_id')->nullable();
             $table->unsignedBigInteger('menu_id')->nullable();
-            $table->date('tanggal');
-            $table->string('jumlah');
-            $table->string('produkJumlah');
+            $table->unsignedBigInteger('bahan_id')->nullable();
+            $table->unsignedBigInteger('mps_id')->nullable();
             $table->timestamps();
-
-            $table->foreign('bom_id')->references('id')->on('boms')->onDelete('cascade');
-            $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
+            $table->foreign('bom_id')->references('id')->on('boms');
+            $table->foreign('menu_id')->references('id')->on('menus');
+            $table->foreign('bahan_id')->references('id')->on('bahans');
+            $table->foreign('mps_id')->references('id')->on('mps');
         });
-
     }
 
     /**
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mps');
+        Schema::dropIfExists('mrps');
     }
 };

@@ -13,10 +13,17 @@ class Bahan extends Model
         'satuan',
         'stokAwal',
         'stokAkhir',
+        'jadwalPenerimaan',
+        'jadwalKedatangan',
     ];
 
     public function boms()
     {
         return $this->hasMany(Bom::class, 'bahan_id');
+    }
+
+    public function mrp()
+    {
+        return $this->hasMany(Mrp::class, 'bahan_id');
     }
 }
