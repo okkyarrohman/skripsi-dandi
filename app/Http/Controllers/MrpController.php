@@ -57,5 +57,19 @@ class MrpController extends Controller
         return view('mrp.index', compact('mrp','jumlahPerBahan', 'boms', 'bahans'));
     }
 
+    public function print(Request $request){
+
+        $boms = Bom::all();
+        $menus = Menu::all();
+        $mrp = Mps::all();
+        $bahans = Bahan::all();
+        $jumlahPerBahan = BOM::select('bahan_id', DB::raw('SUM(jumlah) as total_jumlah'))
+        ->groupBy('bahan_id')
+        ->get();
+
+
+        return view('mrp.result', compact('boms','jumlahPerBahan', 'menus', 'mrp', 'bahans'));
+    }
+
 
 }

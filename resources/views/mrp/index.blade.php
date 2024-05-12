@@ -30,7 +30,7 @@
                 </div>
                 <div style="text-align: left; justify-content:space-between">
                     <button type="submit" class="btn  btn-delete" style="background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Hitung</button>
-                    <a href="#" class="btn  btn-delete" style=" color:white;margin-left: 10px; background-color: red;">Cetak</a>
+                    <a href="{{route('mrp.print')}}" class="btn  btn-delete" style=" color:white;margin-left: 10px; background-color: red;">Cetak</a>
                 </div>
             </form>
             </div>
