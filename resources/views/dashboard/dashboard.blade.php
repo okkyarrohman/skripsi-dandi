@@ -1,44 +1,27 @@
 @extends('layouts.layout-admin')
 @section('content')
 <span style="font-size: 25px; ">DASHBOARD</span>
-<div class="row" style="margin-top:2%;">
+<div class="row d-flex justify-content-center" style="margin-top:2%;">
     <div class="col-md-3 mb-4">
-        <a href="#" class="card shadow text-decoration-none" style="display: block;">
-            <div class="card-body text-center">
-                <div style="font-size: 16px; margin-bottom: 10px;">User</div>
-                <span id="userSpan" style="font-size: 30px; font-weight: bold; border-radius: 50%;"
-                    onmouseout="this.style.border = 'none'; this.style.color = '';">6</span>
-            </div>
-        </a>
-    </div>
-    <div class="col-md-3 mb-4">
-        <a href="#" class="card shadow text-decoration-none" style="display: block;">
+        <a href="{{route('menu.index')}}" class="card shadow text-decoration-none" style="display: block;">
             <div class="card-body text-center">
                 <div style="font-size: 16px; margin-bottom: 10px;">Menu</div>
                 <span id="menuSpan" style="font-size: 30px; font-weight: bold;"
-                    onmouseout="this.style.border = 'none'; this.style.color = '';">16</span>
+                    onmouseout="this.style.border = 'none'; this.style.color = '';">{{$jumlahMenu}}</span>
             </div>
         </a>
     </div>
     <div class="col-md-3 mb-4">
-        <a href="#" class="card shadow text-decoration-none" style="display: block;">
+        <a href="{{route('bahan.index')}}" class="card shadow text-decoration-none" style="display: block;">
             <div class="card-body text-center">
                 <div style="font-size: 16px; margin-bottom: 10px;">Bahan</div>
                 <span id="bahanSpan" style="font-size: 30px; font-weight: bold; border-radius: 50%;"
-                    onmouseout="this.style.border = 'none'; this.style.color = '';">10</span>
-            </div>
-        </a>
-    </div>
-    <div class="col-md-3 mb-4">
-        <a href="#" class="card shadow text-decoration-none" style="display: block;">
-            <div class="card-body text-center">
-                <div style="font-size: 16px; margin-bottom: 10px;">Stok Sisa</div>
-                <span id="stokSpan" style="font-size: 30px; font-weight: bold; border-radius: 50%;"
-                    onmouseout="this.style.border = 'none'; this.style.color = '';">10</span>
+                    onmouseout="this.style.border = 'none'; this.style.color = '';">{{$jumlahBahan}}</span>
             </div>
         </a>
     </div>
 </div>
+
 <div class="card text-decoration-none shadow" style="margin-top:2%; padding:10px;">
     <div class="row">
         <div class="col-6 " style="text-align: center;">
@@ -62,41 +45,61 @@
                 <tbody>
                     @php
                         $i=1;
+                        $cetak = "";
                     @endphp
+                    @if($mrp->count() > 0)
+                        @foreach ($mrp as $mrp)
+                            <tr>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $mrp->boms->bahan->name }}</td>
+                                @php
+                                    $bahanId = $mrp->boms->bahan->id;
+                                    $jumlahBahan = $jumlahPerBahan->where('bahan_id', $bahanId)->first()->total_jumlah;
+                                @endphp
+                                @php
+                                    $kebutuhan = $jumlahBahan * $mrp->produkJumlah;
+                                    $KebutuhanBersih = $mrp->boms->bahan->stokAkhir - $kebutuhan;
+                                @endphp
+                                <td>{{$KebutuhanBersih}} {{$mrp->boms->satuan}}</td>
+                                @php
+                                    $status = $mrp->boms->bahan->stokAkhir - $kebutuhan;
+
+                                    if ($status >= 0){
+                                        $cetak = "Cukup";
+                                    }else{
+                                        $cetak = "Tidak Cukup";
+                                    }
+                                @endphp
+                                <td style="white-space: nowrap; overflow: hidden;">{{$cetak}}</td>
+                            </tr>
+                        @endforeach
+                    @else
                         <tr>
-                            <td>{{ $i++ }}</td>
-                            <td>Gula</td>
-                            <td>3 gram</td>
-                            <td>Cukup</td>
+                            <td class="text-center" colspan="4">Dashboard not found</td>
                         </tr>
-                        <tr>
-                            <td>{{ $i++ }}</td>
-                            <td>Teh</td>
-                            <td>1 gram</td>
-                            <td>Kurang</td>
-                        </tr>
-                        <tr>
-                            <td>{{ $i++ }}</td>
-                            <td>Air</td>
-                            <td>0 Liter</td>
-                            <td>Cukup</td>
-                        </tr>
-                        <!-- Tambahkan baris sesuai data yang ada -->
+                    @endif
                 </tbody>
             </table>
+            @if ($cetak == "Tidak Cukup" || $mrp->count() < 0)
 
-            <div style="margin-top:3%; display: flex; justify-content: space-between;">
-                <i class="fa-solid fa-triangle-exclamation" style="font-size:150%; align-self: center;"></i>
-                <div style="margin-left: 10px; text-align: left; font-size:14px;">
-                  <span >Perhatian: Stok bahan baku hampir habis. Mohon segera lakukan pembelian kembali agar aktivitas produksi tidak terganggu.</span>
-                </div>
-            </div>
-            <div style="margin-top:3%; display: flex; justify-content: space-between;">
-                <i class="fa-solid fa-info-circle" style="font-size:150%; align-self: center;"></i>
-                <div style="text-align: left; flex-grow: 1; margin-left: 6px;">
-                    Produksi minggu ini melampaui target!
-                </div>
-            </div>
+                @else
+
+                @if ($mrp->count() > 0)
+                    <div style="margin-top:3%; display: flex; justify-content: space-between;">
+                        <i class="fa-solid fa-triangle-exclamation" style="font-size:150%; align-self: center;"></i>
+                        <div style="margin-left: 10px; text-align: left; font-size:14px;">
+                        <span >Perhatian: Stok bahan baku hampir habis. Mohon segera lakukan pembelian kembali agar aktivitas produksi tidak terganggu.</span>
+                        </div>
+                    </div>
+                    <div style="margin-top:3%; display: flex; justify-content: space-between;">
+                        <i class="fa-solid fa-info-circle" style="font-size:150%; align-self: center;"></i>
+                        <div style="text-align: left; flex-grow: 1; margin-left: 6px;">
+                            Produksi minggu ini melampaui target!
+                        </div>
+                    </div>
+                @endif
+
+            @endif
 
         </div>
     </div>
@@ -115,10 +118,10 @@
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Teh', 'Air', 'Gula', 'Es', 'Lainnya'],
+        labels: {!! json_encode($mrp->boms->bahan->pluck('name')) !!},
         datasets: [{
           label: '# Bahan Baku',
-          data: [12, 19, 3, 5, 2, 3],
+          data: {!! json_encode($mrp->boms->bahan->pluck('stokAkhir')) !!},
           borderWidth: 1
         }]
       },

@@ -80,7 +80,7 @@
         @endif
     </tbody>
 </table>
-<span>Jumlah   </span>
+
 
 
 @endsection

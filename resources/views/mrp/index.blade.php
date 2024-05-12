@@ -6,14 +6,14 @@
         <span class="card shadow text-decoration-none" style="display: flex; ">
             <div class="card-body" style="justify-content: left;">
                 <!-- resources/views/search.blade.php -->
-            <form class="form-horizontal" action="{{ route('mrp.index') }}" method="GET">
+            <form class="form-horizontal" action="{{ route('mrp.result') }}" method="GET">
                 <div class="input-group input-group-merge" style="max-width: 800px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between">
                     <div style="flex: 1;">
                         <div style="font-size: 16px; margin-bottom: 10px;">Nama Bahan</div>
-                        <select class="form-select" name="bahan_id" id="exampleFormControlSelect1" aria-label="Default select example">
-                            <option selected disabled>Pilih Bahan Baku</option>
-                            @foreach($bahans as $bahan)
-                                <option value="{{ $bahan->id }}">{{ $bahan->name }}</option>
+                        <select class="form-select" name="bom_id" id="exampleFormControlSelect1" aria-label="Default select example">
+                            <option value="">Pilih Bahan</option>
+                            @foreach($boms->unique('bahan.name') as $bom)
+                                <option value="{{ $bom->id }}">{{ $bom->bahan->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -30,14 +30,14 @@
                 </div>
                 <div style="text-align: left; justify-content:space-between">
                     <button type="submit" class="btn  btn-delete" style="background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Hitung</button>
-                    <a href="#" class="btn  btn-delete" style=" color:white;margin-left: 10px; background-color: red;">Hapus</a>
+                    <a href="#" class="btn  btn-delete" style=" color:white;margin-left: 10px; background-color: red;">Cetak</a>
                 </div>
             </form>
             </div>
         </span>
     </div>
 </div>
-<table id="table-register" class="table table-bordered table-hover" style="margin-top: 5%;">
+<table id="table-register" class="table table-bordered table-hover" style="margin-top: 5%; margin-bottom:2%;">
     <thead>
         <tr>
             <th>No</th>
@@ -49,12 +49,14 @@
             <th>Kebutuhan Bersih</th>
             <th>Kedatangan Pesanan</th>
             <th>Pemesanan</th>
+            <th>Status</th>
         </tr>
     </thead>
     <!-- Isi tabel -->
     <tbody>
         @php
             $i=1;
+            $cetak = "";
         @endphp
         @if($mrp->count() > 0)
             @foreach ($mrp as $mrp)
@@ -62,23 +64,52 @@
                     <td>{{ $i++ }}</td>
                     <td style="white-space: nowrap; overflow: hidden;">{{ $mrp->tanggal }}</td>
                     <td>{{ $mrp->boms->bahan->name }}</td>
-                    <td>{{$mrp->boms->jumlah}} {{$mrp->boms->satuan}}</td>
+                    @php
+                        $bahanId = $mrp->boms->bahan->id;
+                        $jumlahBahan = $jumlahPerBahan->where('bahan_id', $bahanId)->first()->total_jumlah;
+                    @endphp
+                    <td>{{$jumlahBahan}} {{$mrp->boms->satuan}}</td>
                     <td>{{ $mrp->boms->bahan->jadwalPenerimaan }}</td>
                     <td>{{$mrp->boms->bahan->stokAkhir}} {{$mrp->boms->bahan->satuan}}</td>
                     @php
-                        $kebutuhanBersih =  $mrp->boms->bahan->stokAkhir - $mrp->boms->jumlah ;
+                        $kebutuhan = $jumlahBahan * $mrp->produkJumlah;
+                        $KebutuhanBersih = $mrp->boms->bahan->stokAkhir - $kebutuhan;
                     @endphp
-                    <td>{{$kebutuhanBersih}} {{$mrp->boms->satuan}}</td>
+                    <td>{{$KebutuhanBersih}} {{$mrp->boms->satuan}}</td>
                     <td style="white-space: nowrap; overflow: hidden;">{{ $mrp->boms->bahan->jadwalKedatangan }}</td>
                     <td>{{$mrp->jumlah}} Porsi</td>
+                    @php
+                        $status = $mrp->boms->bahan->stokAkhir - $kebutuhan;
+
+                        if ($status >= 0){
+                            $cetak = "Cukup";
+                        }else{
+                            $cetak = "Tidak Cukup";
+                        }
+                    @endphp
+                    <td style="white-space: nowrap; overflow: hidden;">{{$cetak}}</td>
                 </tr>
             @endforeach
         @else
             <tr>
-                <td class="text-center" colspan="6">Mps not found</td>
+                <td class="text-center" colspan="10">Mrp not found</td>
             </tr>
         @endif
     </tbody>
 </table>
+@if ($cetak == "Tidak Cukup" || $mrp->count() < 0)
+
+@else
+
+    @if ($mrp->count() > 0)
+        <div style="margin-top:3%; display: flex; justify-content: space-between;">
+            <i class="fa-solid fa-triangle-exclamation" style="font-size:200%; align-self: center;"></i>
+            <div style="margin-left: 10px;">
+                <span>Perhatian! Terdapat bahan baku yang kurang untuk memenuhi kebutuhan produksi pada rentang waktu tertentu. Mohon untuk segera mengambil tindakan yang diperlukan untuk memastikan kelancaran proses produksi!</span>
+            </div>
+        </div>
+    @endif
+@endif
+
 
 @endsection

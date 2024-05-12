@@ -64,4 +64,4 @@ Route::get('/mps/{id}', [MpsController::class, 'destroy'])->name('mps.destroy');
 
 #MRP
 Route::get('/mrp', [MrpController::class, 'index'])->name('mrp.index');
-Route::get('/mrp/result', [MrpController::class, 'result'])->name('mrp.result');
+Route::get('/mrp/result/', [MrpController::class, 'result'])->name('mrp.result');
