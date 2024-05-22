@@ -5,14 +5,14 @@
     <div class="w-full">
         <span class="card shadow text-decoration-none" style="display: flex; ">
             <div class="card-body" style="justify-content: left;">
-                <form class="form-horizontal" action="#" method="POST">
+                <form class="form-horizontal" action="{{route('bahan.index')}}" method="GET">
                     <div style="font-size: 16px; margin-bottom: 10px;">Cari Bahan Baku</div>
                     <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                         <span class="input-group-text" id="basic-addon-search31"><i class="fas fa-search"></i></span>
-                        <input type="text" class="form-control" placeholder="Search..." aria-label="Search..." aria-describedby="basic-addon-search31">
+                        <input name="search" type="text" class="form-control" placeholder="Search..." aria-label="Search..." aria-describedby="basic-addon-search31">
                     </div>
                     <div style="text-align: left; justify-content:space-between">
-                        <button type="button" class="btn  btn-delete" style=" background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Cari</button>
+                        <button type="submit" class="btn  btn-delete" style=" background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Cari</button>
                         <a href="{{ route('bahan.create') }}" class="btn  btn-delete" type="button" style=" background-color: #4f60e0; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Tambah</a>
                     </div>
                 </form>
@@ -26,6 +26,8 @@
             <th>No</th>
             <th>Nama Bahan</th>
             <th>Stok</th>
+            <th>Estimasi Jadwal Penerimaan</th>
+            <th>Jadwal Kedatangan</th>
             <th style="text-align: center;">Action</th>
         </tr>
     </thead>
@@ -34,19 +36,28 @@
         @php
             $i=1;
         @endphp
+        @if($bahans->count() > 0)
+            @foreach ($bahans as $bahan)
+                <tr>
+                    <td>{{ $i++ }}</td>
+                    <td>{{ $bahan->name }}</td>
+                    <td>{{ $bahan->stokAkhir }} {{$bahan->satuan}}</td>
+                    <td>{{ $bahan->jadwalPenerimaan }}</td>
+                    <td>{{ $bahan->jadwalKedatangan }}</td>
+                    <td>
+                        <div style="display: flex; justify-content: center;">
+                            <a href="{{ route('bahan.show', ['id' => $bahan->id]) }}" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Update</a>
+                            <div style="width: 20px;"></div> <!-- Separator -->
+                            <a href="{{ route('bahan.destroy', ['id' => $bahan->id]) }}" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+        @else
             <tr>
-                <td>{{ $i++ }}</td>
-                <td>AAAAAA</td>
-                <td>2222</td>
-                <td>
-                    <div style="display: flex; justify-content: center;">
-                        <a href="{{ route('bahan.update') }}" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Update</a>
-                        <div style="width: 20px;"></div> <!-- Separator -->
-                        <a href="#" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a>
-                    </div>
-                </td>
+                <td class="text-center" colspan="6">Bahan not found</td>
             </tr>
-            <!-- Tambahkan baris sesuai data yang ada -->
+        @endif
     </tbody>
 </table>
 

@@ -42,7 +42,7 @@
               <h4 class="mb-1 pt-2">Welcome</h4>
               <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
-              <form class="mb-3" action="/dashboard" method="POST">
+              <form class="mb-3" action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>

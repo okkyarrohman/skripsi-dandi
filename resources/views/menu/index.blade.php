@@ -5,14 +5,14 @@
     <div class="w-full">
         <span class="card shadow text-decoration-none" style="display: flex; ">
             <div class="card-body" style="justify-content: left;">
-                <form class="form-horizontal" action="#" method="POST">
+                <form class="form-horizontal" action="{{route('menu.index')}}" method="GET">
                     <div style="font-size: 16px; margin-bottom: 10px;">Cari Menu</div>
                     <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                         <span class="input-group-text" id="basic-addon-search31"><i class="fas fa-search"></i></span>
-                        <input type="text" class="form-control" placeholder="Search..." aria-label="Search..." aria-describedby="basic-addon-search31">
+                        <input name="search" type="text" class="form-control" placeholder="Search..." aria-label="Search..." aria-describedby="basic-addon-search31">
                     </div>
                     <div style="text-align: left; justify-content:space-between">
-                        <button type="button" class="btn  btn-delete" style=" background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Cari</button>
+                        <button type="submit" class="btn  btn-delete" style=" background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Cari</button>
                         <a href="{{ route('menu.create') }}" type="button" class="btn  btn-delete" style=" background-color: #4f60e0; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Tambah</a>
                     </div>
                 </form>
@@ -33,19 +33,27 @@
         @php
             $i=1;
         @endphp
+        @if($menus->count() > 0)
+            @foreach ($menus as $menu)
+                <tr>
+                    <td>{{ $i++ }}</td>
+                    <td>{{ $menu->name }}</td>
+                    <td>
+                        <div style="display: flex; justify-content: center;">
+                            <a href="{{ route('menu.show', ['id' => $menu->id]) }}" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Detail</a>
+                            <div style="width: 20px;"></div> <!-- Separator -->
+                            <a href="{{ route('menu.destroy', ['id' => $menu->id]) }}" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+        @else
             <tr>
-                <td>{{ $i++ }}</td>
-                <td>AAAAAA</td>
-                <td>
-                    <div style="display: flex; justify-content: center;">
-                        <a href="{{ route('menu.show') }}" class="btn  btn-delete" style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Detail</a>
-                        <div style="width: 20px;"></div> <!-- Separator -->
-                        <a href="#" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a>
-                    </div>
-                </td>
+                <td class="text-center" colspan="3">Menu not found</td>
             </tr>
-            <!-- Tambahkan baris sesuai data yang ada -->
+        @endif
     </tbody>
+
 </table>
 
 
