@@ -27,6 +27,9 @@
                                     <option value="Pcs">Pcs</option>
                                     <option value="Gram">Gram</option>
                                     <option value="Kg">Kg</option>
+                                    <option value="Ml">Ml</option>
+                                    <option value="Butir">Butir</option>
+                                    <option value="Buah">Buah</option>
                                 </select>
                             </div>
                             <div style="font-size: 16px; margin-bottom: 10px;">Stok</div>

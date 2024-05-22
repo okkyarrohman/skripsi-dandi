@@ -16,17 +16,10 @@ class MenuSeeder extends Seeder
     public function run()
     {
         Menu::create([
-            'name' => 'Nasi Goreng',
-            'harga' => 25000,
-            'deskripsi' => 'Nasi goreng spesial dengan bumbu rahasia',
-            'foto' => 'nasigoreng.jpg',
-        ]);
-
-        Menu::create([
-            'name' => 'Mie Ayam',
-            'harga' => 20000,
-            'deskripsi' => 'Mie ayam dengan topping ayam goreng dan telur',
-            'foto' => 'mieayam.jpg',
+            'name' => 'Es Teh',
+            'harga' => 4000,
+            'deskripsi' => 'Es Teh minuman sejuta umat',
+            'foto' => 'esteh.jpg',
         ]);
 
         // Tambahkan data menu lainnya sesuai kebutuhan

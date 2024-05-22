@@ -16,18 +16,34 @@ class BahanSeeder extends Seeder
     {
         $faker = Faker::create();
         Bahan::create([
-            'name' => 'Beras',
-            'satuan' => 'kg',
-            'stokAwal' => 100,
-            'stokAkhir' => 80,
+            'name' => 'Teh',
+            'satuan' => 'Gram',
+            'stokAwal' => 1000,
+            'stokAkhir' => 1000,
             'jadwalPenerimaan' => $faker->dateTimeBetween('2024-01-01', '2024-01-31')->format('Y-m-d'),
         ]);
 
         Bahan::create([
-            'name' => 'Garam',
-            'satuan' => 'gram',
+            'name' => 'Gula',
+            'satuan' => 'Gram',
             'stokAwal' => 500,
-            'stokAkhir' => 400,
+            'stokAkhir' => 500,
+            'jadwalPenerimaan' => $faker->dateTimeBetween('2024-01-01', '2024-01-31')->format('Y-m-d'),
+        ]);
+
+        Bahan::create([
+            'name' => 'Air',
+            'satuan' => 'Ml',
+            'stokAwal' => 10000,
+            'stokAkhir' => 10000,
+            'jadwalPenerimaan' => $faker->dateTimeBetween('2024-01-01', '2024-01-31')->format('Y-m-d'),
+        ]);
+
+        Bahan::create([
+            'name' => 'Es Batu',
+            'satuan' => 'Butir',
+            'stokAwal' => 200,
+            'stokAkhir' => 200,
             'jadwalPenerimaan' => $faker->dateTimeBetween('2024-01-01', '2024-01-31')->format('Y-m-d'),
         ]);
 
