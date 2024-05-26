@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 
 class BomController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
+
         $boms = Bom::query(); // Mulai dengan query builder dari model Menu
         // Jika terdapat parameter 'search' dalam request, tambahkan kriteria pencarian
         if ($request->has('search')) {
@@ -29,11 +31,12 @@ class BomController extends Controller
         return view('bom.index', compact('boms'));
     }
 
-    public function create(Request $request){
+    public function create(Request $request)
+    {
         $bahans = Bahan::all(); // Mengambil semua data bahan
         $menus = Menu::all();
 
-        return view('bom.create', compact('bahans','menus'));
+        return view('bom.create', compact('bahans', 'menus'));
     }
 
     public function store(Request $request)
@@ -50,22 +53,25 @@ class BomController extends Controller
             'jumlah.required' => 'Jumlah Wajib Diisi',
         ]);
 
-        Bom::create([
-            'menu_id' => $request->input('menu_id'),
-            'bahan_id' => $request->input('bahan_id'),
-            'satuan' => $request->input('satuan'),
-            'jumlah' => $request->input('jumlah'),
-        ]);
+        foreach ($request->bahan_id as $key => $value) {
+            Bom::create([
+                'menu_id' => $request->input('menu_id'),
+                'bahan_id' => $value,
+                'satuan' => $request->satuan[$key],
+                'jumlah' => $request->jumlah[$key],
+            ]);
+        }
 
 
         return redirect()->route('bom.index')->with('success', 'Bom berhasil disimpan.');
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $boms = Bom::find($id);
         $bahans = Bahan::all(); // Mengambil semua data bahan
         $menus = Menu::all();
-        return view('bom.update', compact('boms','menus','bahans'));
+        return view('bom.update', compact('boms', 'menus', 'bahans'));
     }
 
     public function update(Request $request, $id)

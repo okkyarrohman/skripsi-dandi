@@ -64,19 +64,19 @@ class MpsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'bom_id' => 'required',
+            'menu_id' => 'required',
             'tanggal' => 'required',
             'jumlah' => 'required',
             'produkJumlah' => 'required',
         ], [
-            'bom_id.required' => 'Menu Wajib Dipilih',
+            'menu_id.required' => 'Menu Wajib Dipilih',
             'tanggal.required' => 'Satuan Wajib Diisi',
             'jumlah.required' => 'Jumlah Perkiraan Permintaan Harian Wajib Diisi',
             'produkJumlah.required' => 'Jumlah Produksi Wajib Diisi'
         ]);
 
         Mps::create([
-            'bom_id' => $request->input('bom_id'),
+            'menu_id' => $request->input('menu_id'),
             'tanggal' => $request->input('tanggal'),
             'jumlah' => $request->input('jumlah'),
             'produkJumlah' => $request->input('produkJumlah'),
@@ -103,12 +103,12 @@ class MpsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'bom_id' => 'required',
+            'menu_id' => 'required',
             'tanggal' => 'required',
             'jumlah' => 'required',
             'produkJumlah' => 'required',
         ], [
-            'bom_id.required' => 'Menu Wajib Dipilih',
+            'menu_id.required' => 'Menu Wajib Dipilih',
             'tanggal.required' => 'Satuan Wajib Diisi',
             'jumlah.required' => 'Jumlah Perkiraan Permintaan Harian Wajib Diisi',
             'produkJumlah.required' => 'Jumlah Produksi Wajib Diisi'
@@ -117,7 +117,7 @@ class MpsController extends Controller
         $mps = Mps::findOrFail($id);
 
         $mps->update([
-            'bom_id' => $request->input('bom_id'),
+            'menu_id' => $request->input('menu_id'),
             'tanggal' => $request->input('tanggal'),
             'jumlah' => $request->input('jumlah'),
             'produkJumlah' => $request->input('produkJumlah'),

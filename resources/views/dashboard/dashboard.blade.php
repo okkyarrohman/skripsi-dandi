@@ -43,44 +43,38 @@
                 </thead>
                 <!-- Isi tabel -->
                 <tbody>
-                    @php
-                        $i=1;
-                        $cetak = "";
-                    @endphp
-                    @if($mrp->count() > 0)
-                        @foreach ($mrp as $mrp)
-                            <tr>
-                                <td>{{ $i++ }}</td>
-                                <td>{{ $mrp->boms->bahan->name }}</td>
-                                @php
-                                    $bahanId = $mrp->boms->bahan->id;
-                                    $jumlahBahan = $jumlahPerBahan->where('bahan_id', $bahanId)->first()->total_jumlah;
-                                @endphp
-                                @php
-                                    $kebutuhan = $jumlahBahan * $mrp->produkJumlah;
-                                    $KebutuhanBersih = $mrp->boms->bahan->stokAkhir - $kebutuhan;
-                                @endphp
-                                <td>{{$KebutuhanBersih}} {{$mrp->boms->satuan}}</td>
-                                @php
-                                    $status = $mrp->boms->bahan->stokAkhir - $kebutuhan;
-
-                                    if ($status >= 0){
-                                        $cetak = "Cukup";
-                                    }else{
-                                        $cetak = "Tidak Cukup";
-                                    }
-                                @endphp
-                                <td style="white-space: nowrap; overflow: hidden;">{{$cetak}}</td>
-                            </tr>
-                        @endforeach
-                    @else
+                    @if ($mps->count() > 0)
+                @php
+                    $no = 1
+                @endphp
+                @foreach ($mps as $key => $value)
+                    @foreach ($value->menus->boms as $k => $v)
                         <tr>
-                            <td class="text-center" colspan="4">Dashboard not found</td>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $v->bahan->name }}</td>
+                            @php
+                                $Bersih =  $v->bahan->stokAkhir - $value->jumlah * $v->jumlah
+                            @endphp
+                            <td>{{ $Bersih }}</td>
+                            @php
+                                if ($Bersih < 0) {
+                                    $cetak = "Tidak Cukup";
+                                }else {
+                                    $cetak = "Cukup";
+                                };
+                            @endphp
+                            <td>{{ $cetak }}</td>
                         </tr>
-                    @endif
+                    @endforeach
+                @endforeach
+            @else
+                <tr>
+                    <td class="text-center" colspan="10">Mrp not found</td>
+                </tr>
+            @endif
                 </tbody>
             </table>
-            @if ($cetak == "Tidak Cukup" || $mrp->count() < 0)
+            {{-- @if ($cetak == "Tidak Cukup" || $mrp->count() < 0)
 
                 @else
 
@@ -99,7 +93,7 @@
                     </div>
                 @endif
 
-            @endif
+            @endif --}}
 
         </div>
     </div>
@@ -112,28 +106,49 @@
         document.getElementById(id).style.color = textColor;
     }
 </script>
-<script>
-    const ctx = document.getElementById('myChart');
 
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: {!! json_encode($mrp->boms->bahan->pluck('name')) !!},
-        datasets: [{
-          label: '# Bahan Baku',
-          data: {!! json_encode($mrp->boms->bahan->pluck('stokAkhir')) !!},
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        const labels = [];
+        const data = [];
+
+        @foreach ($mps as $key => $value)
+            @foreach ($value->menus->boms as $k => $v)
+                // Mengumpulkan data
+                @php
+                    $Bersih =  $v->bahan->stokAkhir - $value->jumlah * $v->jumlah
+                @endphp
+                labels.push({!! json_encode($v->bahan->name) !!});
+                data.push({!! json_encode($Bersih) !!});
+            @endforeach
+        @endforeach
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '# Bahan Baku',
+                    data: data,
+                    borderWidth: 1,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     });
-  </script>
+</script>
+
 
 
 

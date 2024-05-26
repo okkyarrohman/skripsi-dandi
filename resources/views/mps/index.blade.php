@@ -61,7 +61,7 @@
                     <td>{{ $i++ }}</td>
                     <td>{{ $mps->tanggal }}</td>
                     {{-- <td>{{ $mergedMenus->where('id', $mps->menu_id)->first()->name }}</td> --}}
-                    <td>{{$mps->boms->menu->name}}</td>
+                    <td>{{$mps->menus->name}}</td>
                     <td>{{ $mps->jumlah }} Porsi</td>
                     <td>{{ $mps->produkJumlah}} Porsi</td>
                     <td>

@@ -17,16 +17,15 @@ class DashboardController extends Controller
 
     public function index(Request $request)
     {
-        $menu = Menu::all();
-        $bahan = Bahan::all();
         $jumlahMenu = Menu::count();
         $jumlahBahan = Bahan::count();
-        $boms = Bom::all();
-        $mrp = Mps::all();
-        $jumlahPerBahan = BOM::select('bahan_id', DB::raw('SUM(jumlah) as total_jumlah'))
-        ->groupBy('bahan_id')
-        ->get();
-        return view('dashboard.dashboard', compact('jumlahPerBahan','jumlahBahan', 'jumlahMenu', 'menu','bahan','boms','mrp'));
+        $mps = Mps::with('boms.bahan')->get();
+        return view('dashboard.dashboard', [
+            'mps' => $mps,
+            'boms' => Bom::get(),
+            'jumlahMenu' => $jumlahMenu,
+            'jumlahBahan' => $jumlahBahan,
+        ]);
     }
 
 }

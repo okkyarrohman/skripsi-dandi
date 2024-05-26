@@ -25,13 +25,4 @@ class Bom extends Model
         return $this->belongsTo(Bahan::class, 'bahan_id');
     }
 
-    public function mps()
-    {
-        return $this->hasMany(Mps::class, 'bom_id');
-    }
-
-    public function mrp()
-    {
-        return $this->hasMany(Mrp::class, 'bom_id');
-    }
 }

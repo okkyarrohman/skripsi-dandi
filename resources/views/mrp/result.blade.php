@@ -11,40 +11,41 @@
             <th style="border: 1px solid #000;">Jadwal Penerimaan</th>
             <th style="border: 1px solid #000;">Jumlah Persediaan</th>
             <th style="border: 1px solid #000;">Kebutuhan Bersih</th>
-            <th style="border: 1px solid #000;">Kedatangan Pesanan</th>
             <th style="border: 1px solid #000;">Pemesanan</th>
             <th style="border: 1px solid #000;">Status</th>
         </tr>
     </thead>
     <tbody>
-        @php $i=1; @endphp
-        @if($mrp->count() > 0)
-            @foreach ($mrp as $mrpItem)
+
+        @if($mps->count() > 0)
+        @php
+            $no = 1
+        @endphp
+        @foreach ($mps as $key => $value)
+            @foreach ($value->menus->boms as $k => $v)
                 <tr>
-                    <td style="border: 1px solid #000;">{{ $i++ }}</td>
-                    <td style="border: 1px solid #000;">{{ $mrpItem->tanggal }}</td>
-                    <td style="border: 1px solid #000;">{{ $mrpItem->boms->bahan->name }}</td>
+                    <td style="border: 1px solid #000;">{{ $no++ }}</td>
+                    <td style="border: 1px solid #000;">{{ $value->tanggal }}</td>
+                    <td style="border: 1px solid #000;">{{ $v->bahan->name }}</td>
+                    <td style="border: 1px solid #000;">{{ $v->jumlah }} {{ $v->satuan }}</td>
+                    <td style="border: 1px solid #000;">{{ $v->bahan->jadwalPenerimaan }}</td>
+                    <td style="border: 1px solid #000;">{{ $v->bahan->stokAkhir }}</td>
                     @php
-                        $bahanId = $mrpItem->boms->bahan->id;
-                        $jumlahBahan = $jumlahPerBahan->where('bahan_id', $bahanId)->first()->total_jumlah;
+                        $Bersih =  $v->bahan->stokAkhir - $value->jumlah * $v->jumlah
                     @endphp
-                    <td style="border: 1px solid #000;">{{ $jumlahBahan }} {{ $mrpItem->boms->satuan }}</td>
-                    <td style="border: 1px solid #000;">{{ $mrpItem->boms->bahan->jadwalPenerimaan }}</td>
-                    <td style="border: 1px solid #000;">{{ $mrpItem->boms->bahan->stokAkhir }} {{ $mrpItem->boms->bahan->satuan }}</td>
+                    <td style="border: 1px solid #000;">{{ $Bersih }}</td>
+                    <td style="border: 1px solid #000;">{{ $value->jumlah }} Porsi</td>
                     @php
-                        $kebutuhan = $jumlahBahan * $mrpItem->produkJumlah;
-                        $kebutuhanBersih = $mrpItem->boms->bahan->stokAkhir - $kebutuhan;
-                    @endphp
-                    <td style="border: 1px solid #000;">{{ $kebutuhanBersih }} {{ $mrpItem->boms->satuan }}</td>
-                    <td style="border: 1px solid #000;">{{ $mrpItem->boms->bahan->jadwalKedatangan }}</td>
-                    <td style="border: 1px solid #000;">{{ $mrpItem->jumlah }} Porsi</td>
-                    @php
-                        $status = $mrpItem->boms->bahan->stokAkhir - $kebutuhan;
-                        $cetak = $status >= 0 ? "Cukup" : "Tidak Cukup";
+                        if ($Bersih < 0) {
+                            $cetak = "Tidak Cukup";
+                        }else {
+                            $cetak = "Cukup";
+                        };
                     @endphp
                     <td style="border: 1px solid #000;">{{ $cetak }}</td>
                 </tr>
             @endforeach
+        @endforeach
         @else
             <tr>
                 <td class="text-center" colspan="10" style="border: 1px solid #000;">Data MRP tidak ditemukan</td>

@@ -17,7 +17,7 @@ class Menu extends Model
 
     public function boms()
     {
-        return $this->hasMany(Bom::class, 'menu_id');
+        return $this->hasMany(Bom::class);
     }
 
     public function mps()

@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MpsController;
 use App\Http\Controllers\MrpController;
+use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +65,10 @@ Route::get('/mps/{id}', [MpsController::class, 'destroy'])->name('mps.destroy');
 
 #MRP
 Route::get('/mrp', [MrpController::class, 'index'])->name('mrp.index');
-Route::get('/mrp/result/', [MrpController::class, 'result'])->name('mrp.result');
+Route::post('/mrp/result/', [MrpController::class, 'result'])->name('mrp.result');
+Route::get('/mrp/hasil/{id}', [MrpController::class, 'hasil'])->name('mrp.hasil');
 Route::get('/mrp/print/', [MrpController::class, 'print'])->name('mrp.print');
+Route::get('/mrp/printHasil/{id}', [MrpController::class, 'printHasil'])->name('mrp.printHasil');
 
+#riwayar
+Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat.index');

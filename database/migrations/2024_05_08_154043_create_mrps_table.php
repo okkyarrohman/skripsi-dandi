@@ -17,6 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('menu_id')->nullable();
             $table->unsignedBigInteger('bahan_id')->nullable();
             $table->unsignedBigInteger('mps_id')->nullable();
+            $table->date('dateStart')->nullable();
+            $table->date('dateEnd')->nullable();
             $table->timestamps();
             $table->foreign('bom_id')->references('id')->on('boms');
             $table->foreign('menu_id')->references('id')->on('menus');
