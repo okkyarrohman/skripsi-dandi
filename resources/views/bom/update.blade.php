@@ -21,7 +21,7 @@
                     <span>Nama Bahan Baku</span>
                     <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                         <select class="form-select" name="bahan_id" id="exampleFormControlSelect1" aria-label="Default select example">
-                            <option value="{{$boms->bahan->id}}">{{$boms->bahan->name}}</option>
+                            <option value="{{$boms->id}}">{{$boms->bahan->name}}</option>
                             @foreach($bahans as $bahan)
                             <option value="{{ $bahan->id }}">{{ $bahan->name }}</option>
                             @endforeach

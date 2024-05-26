@@ -15,7 +15,7 @@
                     </div>
                     <span>Nama Menu</span>
                     <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                        <select class="form-select" name="bom_id" id="exampleFormControlSelect1" aria-label="Default select example">
+                        <select class="form-select" name="menu_id" id="exampleFormControlSelect1" aria-label="Default select example">
                             <option value="{{$mps->bom_id}}">{{$mps->boms->menu->name}}</option>
                             @foreach($boms->unique('menu.name') as $bom)
                                 <option value="{{ $bom->id }}">{{ $bom->menu->name }}</option>

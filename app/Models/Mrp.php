@@ -13,6 +13,8 @@ class Mrp extends Model
         'menu_id',
         'bahan_id',
         'mps_id',
+        'dateStart',
+        'dateEnd',
     ];
 
     public function menus()
@@ -24,14 +26,14 @@ class Mrp extends Model
     {
         return $this->belongsTo(Bom::class, 'bom_id', 'id');
     }
-
-    public function bahans()
-    {
-        return $this->belongsTo(Bahan::class, 'bahan_id', 'id');
+    public function bahan(){
+        return $this->belongsTo(Bahan::class);
     }
+
+
 
     public function mps()
     {
-        return $this->belongsTo(Mps::class, 'mps_id', 'id');
+        return $this->belongsTo(Mps::class, 'mps_id');
     }
 }

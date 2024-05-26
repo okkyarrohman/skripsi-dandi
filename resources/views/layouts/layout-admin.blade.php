@@ -135,6 +135,13 @@
                   <div class="badge bg-primary rounded-pill ms-auto"></div>
                 </a>
             </li>
+            <li class="menu-item {{ Request::is('riwayat*') ? ' active' : '' }}">
+                <a href="{{ route('riwayat.index') }}" class="menu-link">
+                  <i class="menu-icon tf-icons"></i>
+                  <div data-i18n="riwayat">Riwayat Perhitungan</div>
+                  <div class="badge bg-primary rounded-pill ms-auto"></div>
+                </a>
+            </li>
           </ul>
         </aside>
         <!-- / Menu -->
