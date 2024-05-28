@@ -41,7 +41,7 @@
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px; display: flex; align-items: center;">
                                 <input type="text" name="stokAkhir" value="{{$bahans->stokAkhir}}" class="form-control" placeholder="Stok akhir..." aria-describedby="basic-addon-search31">
                                 <span style="margin: 0 6px;">Dari</span>
-                                <input type="text" name="stokAwal" value="{{$bahans->stokAwal}}"  class="form-control" placeholder="Stok awal..." aria-describedby="basic-addon-search31">
+                                <input type="text" readonly name="stokAwal" value="{{$bahans->stokAwal}}"  class="form-control" placeholder="Stok awal..." aria-describedby="basic-addon-search31">
                             </div>
                         </div>
                     </div>
