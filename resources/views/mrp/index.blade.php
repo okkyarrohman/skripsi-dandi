@@ -44,7 +44,7 @@
             </span>
         </div>
     </div>
-    <table id="table-register" class="table table-bordered table-hover" style="margin-top: 5%; margin-bottom:2%;">
+    {{-- <table id="table-register" class="table table-bordered table-hover" style="margin-top: 5%; margin-bottom:2%;">
         <thead>
             <tr>
                 <th>No</th>
@@ -95,7 +95,7 @@
                 </tr>
             @endif
         </tbody>
-    </table>
+    </table> --}}
     {{-- @if ($cetak == 'Tidak Cukup' || $mrp->count() < 0)
     @else
         @if ($mrp->count() > 0)
