@@ -13,6 +13,7 @@
                     <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                         <input class="form-control" name="tanggal" type="date" value="{{$mps->tanggal}}" id="html5-date-input">
                     </div>
+ 
                     <span>Nama Menu</span>
                     <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                         <select class="form-select" name="menu_id" id="exampleFormControlSelect1" aria-label="Default select example">

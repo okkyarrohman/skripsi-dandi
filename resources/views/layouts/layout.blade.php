@@ -18,7 +18,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{asset("/assets/img/favicon/favicon.ico")}}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,26 +28,26 @@
       rel="stylesheet" />
 
     <!-- Icons -->
-    <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="../../assets/vendor/fonts/tabler-icons.css" />
+    <link rel="stylesheet" href="{{asset("/assets/vendor/fonts/fontawesome.css")}}" />
+    <link rel="stylesheet" href="{{asset("/assets/vendor/fonts/tabler-icons.css")}}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" />
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" />
-    <link rel="stylesheet" href="../../assets/css/demo.css" />
+    <link rel="stylesheet" href="{{asset("/assets/vendor/css/rtl/core.css")}}" />
+    <link rel="stylesheet" href="{{asset("/assets/vendor/css/rtl/theme-default.css")}}" />
+    <link rel="stylesheet" href="{{asset("/assets/css/demo.css")}}" />
 
     <!-- Vendor -->
-    <link rel="stylesheet" href="../../assets/vendor/libs/@form-validation/form-validation.css" />
+    <link rel="stylesheet" href="{{asset("/assets/vendor/libs/@form-validation/form-validation.css")}}" />
 
     <!-- Page CSS -->
     <!-- Page -->
-    <link rel="stylesheet" href="../../assets/vendor/css/pages/page-auth.css" />
+    <link rel="stylesheet" href="{{asset("/assets/vendor/css/pages/page-auth.css")}}" />
 
     <!-- Helpers -->
-    <script src="../../assets/vendor/js/helpers.js"></script>
+    <script src="{{asset("/assets/vendor/js/helpers.js")}}"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../../assets/js/config.js"></script>
+    <script src="{{asset("/assets/js/config.js")}}"></script>
   </head>
 
   <body>
@@ -60,18 +60,18 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
 
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../../assets/vendor/js/bootstrap.js"></script>
+    <script src="{{asset("/assets/vendor/libs/jquery/jquery.js")}}"></script>
+    <script src="{{asset("/assets/vendor/js/bootstrap.js")}}"></script>
 
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../../assets/vendor/libs/@form-validation/popular.js"></script>
-    <script src="../../assets/vendor/libs/@form-validation/bootstrap5.js"></script>
-    <script src="../../assets/vendor/libs/@form-validation/auto-focus.js"></script>
+    <script src="{{asset("/assets/vendor/libs/@form-validation/popular.js")}}"></script>
+    <script src="{{asset("/assets/vendor/libs/@form-validation/bootstrap5.js")}}"></script>
+    <script src="{{asset("/assets/vendor/libs/@form-validation/auto-focus.js")}}"></script>
 
     <!-- Main JS -->
-    <script src="../../assets/js/main.js"></script>
+    <script src="{{asset("/assets/js/main.js")}}"></script>
 
   </body>
 </html>
