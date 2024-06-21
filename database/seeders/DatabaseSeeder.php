@@ -14,12 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
         $this->call([
             MenuSeeder::class,
             // tambahkan seeder lain jika ada
@@ -30,9 +24,9 @@ class DatabaseSeeder extends Seeder
             // tambahkan seeder lain jika ada
         ]);
         DB::table('users')->insert([
-            'name'=>'RafiAnwar',
+            'name' => 'RafiAnwar',
             'email' => 'email@gmail.com',
-            'password'=>Hash::make('123456'),
+            'password' => Hash::make('123456'),
         ]);
     }
 }
