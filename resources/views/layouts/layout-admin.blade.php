@@ -413,11 +413,11 @@
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src="../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                                        {{-- <img src="../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" /> --}}
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li>
+                                    {{-- <li>
                                         <div class="d-flex">
                                             <div class="flex-shrink-0 me-3">
                                                 <div class="avatar avatar-online">
@@ -434,7 +434,7 @@
                                     </li>
                                     <li>
                                         <div class="dropdown-divider"></div>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a class="dropdown-item" href="/" target="_blank">
                                             <i class="ti ti-logout me-2 ti-sm"></i>
