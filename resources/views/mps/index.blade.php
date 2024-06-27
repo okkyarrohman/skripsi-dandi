@@ -51,7 +51,7 @@
                 <th>No</th>
                 <th>Tanggal</th>
                 <th>Nama Menu</th>
-                <th>Perkiraan Permintaan Harian</th>
+                <th>Perkiraan Permintaan</th>
                 <th>Jumlah Produksi</th>
                 <th style="text-align: center;">Action</th>
             </tr>
