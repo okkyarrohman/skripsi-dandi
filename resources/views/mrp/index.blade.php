@@ -44,7 +44,7 @@
             </span>
         </div>
     </div>
-    <table id="table-register" class="table table-bordered table-hover" style="margin-top: 5%; margin-bottom:2%;">
+    {{-- <table id="table-register" class="table table-bordered table-hover" style="margin-top: 5%; margin-bottom:2%;">
         <thead>
             <tr>
                 <th>No</th>
@@ -71,7 +71,7 @@
                             <td>{{ $value->tanggal }}</td>
                             <td>{{ $v->bahan->name }}</td>
                             @php
-                                $jum =  $value->jumlah * $v->produkJumlah
+                                $jum =  $value->produkJumlah * $v->jumlah
                             @endphp
                             <td>{{ $jum }} {{ $v->satuan }}</td>
                             <td>0</td>
@@ -80,7 +80,7 @@
                                 $Bersih =  $v->bahan->stokAkhir - 0 -  $jum
                             @endphp
                             <td>{{ $Bersih }} {{ $v->satuan }}</td>
-                            <td>{{ $v->produkJumlah }} Porsi</td>
+                            <td>{{ $value->produkJumlah }} Porsi</td>
                             @php
                                 if ($Bersih < 0) {
                                     $cetak = "Tidak Cukup";
@@ -98,7 +98,7 @@
                 </tr>
             @endif
         </tbody>
-    </table>
+    </table> --}}
     {{-- @if ($cetak == 'Tidak Cukup' || $mrp->count() < 0)
     @else
         @if ($mrp->count() > 0)

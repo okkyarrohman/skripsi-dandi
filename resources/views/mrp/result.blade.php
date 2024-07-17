@@ -28,16 +28,16 @@
                     <td style="border: 1px solid #000;">{{ $value->tanggal }}</td>
                     <td style="border: 1px solid #000;">{{ $v->bahan->name }}</td>
                      @php
-                                $jum =  $value->jumlah * $v->produkJumlah
+                                $jum =  $value->produkJumlah * $v->jumlah
                             @endphp
                     <td style="border: 1px solid #000;">{{ $jum }} {{ $v->satuan }}</td>
-                    <td style="border: 1px solid #000;">{{ $v->bahan->jadwalPenerimaan }}</td>
+                    <td style="border: 1px solid #000;">0</td>
                     <td style="border: 1px solid #000;">{{ $v->bahan->stokAkhir }} {{ $v->satuan }}</td>
                     @php
                                 $Bersih =  $v->bahan->stokAkhir - 0 -  $jum
                             @endphp
                     <td style="border: 1px solid #000;">{{ $Bersih }} {{ $v->satuan }}</td>
-                    <td style="border: 1px solid #000;">{{  $v->produkJumlah }} Porsi</td>
+                    <td style="border: 1px solid #000;">{{ $value->produkJumlah }} Porsi</td>
                     @php
                         if ($Bersih < 0) {
                             $cetak = "Tidak Cukup";

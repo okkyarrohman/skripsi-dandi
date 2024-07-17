@@ -18,7 +18,6 @@ class MrpController extends Controller
         return view('mrp.index', [
             'mps' => Mps::get(),
             'boms' => Bom::get(),
-
         ]);
     }
     public function result(Request $request)
@@ -43,13 +42,13 @@ class MrpController extends Controller
                 if ($v->bahan->id == $mrp->bahan_id) {
                     $data[$index]['tanggal'] = $value->tanggal;
                     $data[$index]['name'] = $v->bahan->name;
-                    $jum = $value->jumlah * $v->produkJumlah;
+                    $jum = $value->produkJumlah * $v->jumlah;
                     $data[$index]['jumlahBahan'] = $jum . ' ' . $v->satuan;
                     $data[$index]['jadwalPenerimaan'] = 0;
                     $data[$index]['stokAkhir'] = $v->bahan->stokAkhir. ' ' . $v->satuan;
                     $Bersih =  $v->bahan->stokAkhir - 0 -  $jum;
                     $data[$index]['Bersih'] = $Bersih. ' ' . $v->satuan;
-                    $data[$index]['jumlah'] = $v->produkJumlah;
+                    $data[$index]['jumlah'] = $value->produkJumlah;
                     if ($Bersih < 0) {
                         $cetak = "Tidak Cukup";
                     } else {
@@ -84,13 +83,13 @@ class MrpController extends Controller
                 if ($v->bahan->id == $mrp->bahan_id) {
                     $data[$index]['tanggal'] = $value->tanggal;
                     $data[$index]['name'] = $v->bahan->name;
-                    $jum = $value->jumlah * $v->produkJumlah;
+                    $jum = $value->produkJumlah * $v->jumlah;
                     $data[$index]['jumlahBahan'] = $jum . ' ' . $v->satuan;
                     $data[$index]['jadwalPenerimaan'] = 0;
                     $data[$index]['stokAkhir'] = $v->bahan->stokAkhir. ' ' . $v->satuan;
                     $Bersih =  $v->bahan->stokAkhir - 0 -  $jum;
                     $data[$index]['Bersih'] = $Bersih. ' ' . $v->satuan;
-                    $data[$index]['jumlah'] = $value->jumlah;
+                    $data[$index]['jumlah'] = $value->produkJumlah;
                     if ($Bersih < 0) {
                         $cetak = "Tidak Cukup";
                     } else {
