@@ -44,16 +44,16 @@
             </span>
         </div>
     </div>
-    {{-- <table id="table-register" class="table table-bordered table-hover" style="margin-top: 5%; margin-bottom:2%;">
+    <table id="table-register" class="table table-bordered table-hover" style="margin-top: 5%; margin-bottom:2%;">
         <thead>
             <tr>
                 <th>No</th>
                 <th>Tanggal</th>
                 <th>Nama Bahan</th>
-                <th>Kebutuhan Kotor</th>
-                <th>Jadwal Penerimaan</th>
-                <th>Jumlah Persediaan</th>
-                <th>Kebutuhan Bersih</th>
+                <th>Kebutuhan Kotor (GR)</th>
+                <th>Jadwal Penerimaan (SR)</th>
+                <th>Jumlah Persediaan (OHI)</th>
+                <th>Kebutuhan Bersih (NR)</th>
                 <th>Pemesanan</th>
                 <th>Status</th>
             </tr>
@@ -70,14 +70,17 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $value->tanggal }}</td>
                             <td>{{ $v->bahan->name }}</td>
-                            <td>{{ $v->jumlah }} {{ $v->satuan }}</td>
-                            <td>{{ $v->bahan->jadwalPenerimaan }}</td>
-                            <td>{{ $v->bahan->stokAkhir }}</td>
                             @php
-                                $Bersih =  $v->bahan->stokAkhir - $value->jumlah * $v->jumlah
+                                $jum =  $value->jumlah * $v->produkJumlah
                             @endphp
-                            <td>{{ $Bersih }}</td>
-                            <td>{{ $value->jumlah }} Porsi</td>
+                            <td>{{ $jum }} {{ $v->satuan }}</td>
+                            <td>0</td>
+                            <td>{{ $v->bahan->stokAkhir }} {{ $v->satuan }}</td>
+                            @php
+                                $Bersih =  $v->bahan->stokAkhir - 0 -  $jum
+                            @endphp
+                            <td>{{ $Bersih }} {{ $v->satuan }}</td>
+                            <td>{{ $v->produkJumlah }} Porsi</td>
                             @php
                                 if ($Bersih < 0) {
                                     $cetak = "Tidak Cukup";
@@ -95,7 +98,7 @@
                 </tr>
             @endif
         </tbody>
-    </table> --}}
+    </table>
     {{-- @if ($cetak == 'Tidak Cukup' || $mrp->count() < 0)
     @else
         @if ($mrp->count() > 0)

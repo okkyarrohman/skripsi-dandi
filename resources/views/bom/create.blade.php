@@ -34,11 +34,10 @@
                                 <span>Satuan</span>
                                 <select class="form-select" name="satuan[]" aria-label="Default select example">
                                     <option selected="">Pilih Satuan</option>
-                                    <option value="Pcs">Pcs</option>
-                                    <option value="Gram">Gram</option>
-                                    <option value="Kg">Kg</option>
-                                    <option value="Ml">Ml</option>
-                                    <option value="Butir">Butir</option>
+                                                                        <option value="Sachet (Pcs)">Sachet (Pcs)</option>
+                                    <option value="Gram (G)">Gram (G)</option>
+                                    <option value="Kilogram (Kg)">Kilogram (Kg)</option>
+                                    <option value="Liter (L)">Liter (L)</option>
                                     <option value="Buah">Buah</option>
                                 </select>
                             </div>
@@ -94,12 +93,11 @@
           <span>Satuan</span>
           <select class="form-select" name="satuan[]" aria-label="Default select example">
             <option selected="">Pilih Satuan</option>
-            <option value="Pcs">Pcs</option>
-            <option value="Gram">Gram</option>
-            <option value="Kg">Kg</option>
-            <option value="Ml">Ml</option>
-            <option value="Butir">Butir</option>
-            <option value="Buah">Buah</option>
+                                                <option value="Sachet (Pcs)">Sachet (Pcs)</option>
+                                    <option value="Gram (G)">Gram (G)</option>
+                                    <option value="Kilogram (Kg)">Kilogram (Kg)</option>
+                                    <option value="Liter (L)">Liter (L)</option>
+                                    <option value="Buah">Buah</option>
           </select>
         `;
 

@@ -66,19 +66,16 @@ class MpsController extends Controller
         $request->validate([
             'menu_id' => 'required',
             'tanggal' => 'required',
-            'jumlah' => 'required',
             'produkJumlah' => 'required',
         ], [
             'menu_id.required' => 'Menu Wajib Dipilih',
             'tanggal.required' => 'Satuan Wajib Diisi',
-            'jumlah.required' => 'Jumlah Perkiraan Permintaan Harian Wajib Diisi',
             'produkJumlah.required' => 'Jumlah Produksi Wajib Diisi'
         ]);
 
         Mps::create([
             'menu_id' => $request->input('menu_id'),
             'tanggal' => $request->input('tanggal'),
-            'jumlah' => $request->input('jumlah'),
             'produkJumlah' => $request->input('produkJumlah'),
         ]);
 
@@ -105,12 +102,10 @@ class MpsController extends Controller
         $request->validate([
             'menu_id' => 'required',
             'tanggal' => 'required',
-            'jumlah' => 'required',
             'produkJumlah' => 'required',
         ], [
             'menu_id.required' => 'Menu Wajib Dipilih',
             'tanggal.required' => 'Satuan Wajib Diisi',
-            'jumlah.required' => 'Jumlah Perkiraan Permintaan Harian Wajib Diisi',
             'produkJumlah.required' => 'Jumlah Produksi Wajib Diisi'
         ]);
 
@@ -119,7 +114,6 @@ class MpsController extends Controller
         $mps->update([
             'menu_id' => $request->input('menu_id'),
             'tanggal' => $request->input('tanggal'),
-            'jumlah' => $request->input('jumlah'),
             'produkJumlah' => $request->input('produkJumlah'),
         ]);
 
