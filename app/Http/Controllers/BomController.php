@@ -76,18 +76,8 @@ class BomController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'menu_id' => 'required',
-            'bahan_id' => 'required',
-            'satuan' => 'required',
-            'jumlah' => 'required',
-        ], [
-            'menu_id.required' => 'Menu Wajib Dipilih',
-            'bahan_id.required' => 'Bahan Wajib Dipilih',
-            'satuan.required' => 'Satuan Wajib Diisi',
-            'jumlah.required' => 'Jumlah Wajib Diisi',
-        ]);
-        $boms = Bom::findOrFail($id);
+
+        $boms = Bom::where('id', $id)->first();
 
         $boms->update([
             'menu_id' => $request->input('menu_id'),
