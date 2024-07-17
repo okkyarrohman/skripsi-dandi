@@ -14,21 +14,14 @@
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                                 <input type="text" name="name" class="form-control" placeholder="Nama" aria-describedby="basic-addon-search31">
                             </div>
-                            <div style="font-size: 16px; margin-bottom: 10px;">Estimasi Jadwal Penerimaan</div>
-                            <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                                <input class="form-control" name="jadwalPenerimaan" type="date" value="" id="html5-date-input">
-                            </div>
-                        </div>
-                        <div>
-                            <div style="font-size: 16px; margin-bottom: 10px;">Satuan</div>
+                             <div style="font-size: 16px; margin-bottom: 10px;">Satuan</div>
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                                 <select class="form-select" name="satuan" id="exampleFormControlSelect1" aria-label="Default select example">
                                     <option selected="">Pilih Satuan</option>
-                                    <option value="Pcs">Pcs</option>
-                                    <option value="Gram">Gram</option>
-                                    <option value="Kg">Kg</option>
-                                    <option value="Ml">Ml</option>
-                                    <option value="Butir">Butir</option>
+                                    <option value="Sachet (Pcs)">Sachet (Pcs)</option>
+                                    <option value="Gram (G)">Gram (G)</option>
+                                    <option value="Kilogram (Kg)">Kilogram (Kg)</option>
+                                    <option value="Liter (L)">Liter (L)</option>
                                     <option value="Buah">Buah</option>
                                 </select>
                             </div>
@@ -36,6 +29,13 @@
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                                 <input type="text" name="stokAwal" class="form-control" placeholder="Stok" aria-describedby="basic-addon-search31">
                             </div>
+                            <!--<div style="font-size: 16px; margin-bottom: 10px;">Estimasi Jadwal Penerimaan</div>-->
+                            <!--<div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">-->
+                            <!--    <input class="form-control" name="jadwalPenerimaan" type="date" value="" id="html5-date-input">-->
+                            <!--</div>-->
+                        </div>
+                        <div>
+
                         </div>
                     </div>
 

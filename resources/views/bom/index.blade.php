@@ -50,7 +50,7 @@
                                 <a href="{{ route('bom.show', ['id' => $bom->id]) }}" class="btn  btn-delete"
                                     style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Update</a>
                                 <div style="width: 20px;"></div> <!-- Separator -->
-                                {{-- <a href="{{ route('bom.destroy', ['id' => $bom->id]) }}" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a> --}}
+                                <a href="{{ route('bom.destroy', ['id' => $bom->id]) }}" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a>
                             </div>
                         </td>
                     </tr>

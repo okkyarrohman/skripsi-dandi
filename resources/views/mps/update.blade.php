@@ -27,13 +27,13 @@
                             </select>
 
                         </div>
-                        <span>Perkiraan Permintaan</span>
-                        <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                            <input type="text" name="jumlah" value="{{ $mps->jumlah }}" class="form-control"
-                                id="defaultFormControlInput" placeholder="Masukkan Jumlah"
-                                aria-describedby="defaultFormControlHelp">
-                        </div>
-                        <span>Jumlah Produksi</span>
+                        <!--<span>Perkiraan Permintaan</span>-->
+                        <!--<div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">-->
+                        <!--    <input type="text" name="jumlah" value="{{ $mps->jumlah }}" class="form-control"-->
+                        <!--        id="defaultFormControlInput" placeholder="Masukkan Jumlah"-->
+                        <!--        aria-describedby="defaultFormControlHelp">-->
+                        <!--</div>-->
+                        <span>Jumlah Pemesanan (Porsi)</span>
                         <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                             <input type="text" name="produkJumlah" value="{{ $mps->produkJumlah }}" class="form-control"
                                 id="defaultFormControlInput" placeholder="Masukkan Jumlah"

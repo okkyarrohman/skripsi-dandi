@@ -9,8 +9,19 @@
                         <div class="input-group input-group-merge"
                             style="max-width: 800px; margin-bottom: 10px; display: flex; align-items: center;">
                             <div style="flex: 1;">
-                                <div style="font-size: 16px; margin-bottom: 10px;">Cari MPS</div>
-                                <div class="input-group input-group-merge">
+                                <!--<div style="font-size: 16px; margin-bottom: 10px;">CARI MPS</div>-->
+                                <div style="display: flex; align-items: center; justify-content: space-between;">
+                                    <div style="flex: 1; margin-right: 4px;">
+                                        <div style="font-size: 16px; margin-bottom: 10px;">Tanggal awal</div>
+                                        <input name="tanggal_awal" class="form-control" type="date" id="html5-date-input">
+                                    </div>
+                                    <div style="flex: 1; margin-left: 4px;">
+                                        <div style="font-size: 16px; margin-bottom: 10px;">Tanggal akhir</div>
+                                        <input name="tanggal_akhir" class="form-control" type="date" id="html5-date-input">
+                                    </div>
+                                </div>
+
+                                {{-- <div class="input-group input-group-merge">
                                     <select class="form-select" name="bom_id" id="exampleFormControlSelect1"
                                         aria-label="Default select example">
                                         <option value="">Pilih Menu</option>
@@ -18,20 +29,9 @@
                                             <option value="{{ $bom->id }}">{{ $bom->menu->name }}</option>
                                         @endforeach
                                     </select>
-                                </div>
+                                </div> --}}
                             </div>
                             <div style="margin: 0 4px;"></div>
-                            <div style="flex: 1;">
-                                <div style="font-size: 16px; margin-bottom: 10px;">Tanggal awal</div>
-                                <input name="tanggal_awal" class="form-control" type="date" value=""
-                                    id="html5-date-input">
-                            </div>
-                            <div style="margin: 0 4px;"></div>
-                            <div style="flex: 1;">
-                                <div style="font-size: 16px; margin-bottom: 10px;">Tanggal akhir</div>
-                                <input name="tanggal_akhir" class="form-control" type="date" value=""
-                                    id="html5-date-input">
-                            </div>
                         </div>
                         <div style="text-align: left; justify-content:space-between">
                             <button type="submit" class="btn btn-delete"
@@ -51,8 +51,7 @@
                 <th>No</th>
                 <th>Tanggal</th>
                 <th>Nama Menu</th>
-                <th>Perkiraan Permintaan</th>
-                <th>Jumlah Produksi</th>
+                <th>Jumlah Pemesanan (Porsi)</th>
                 <th style="text-align: center;">Action</th>
             </tr>
         </thead>
@@ -68,7 +67,6 @@
                         <td>{{ $mps->tanggal }}</td>
                         {{-- <td>{{ $mergedMenus->where('id', $mps->menu_id)->first()->name }}</td> --}}
                         <td>{{ $mps->menus->name }}</td>
-                        <td>{{ $mps->jumlah }} Porsi</td>
                         <td>{{ $mps->produkJumlah }} Porsi</td>
                         <td>
                             <div style="display: flex; justify-content: center;">

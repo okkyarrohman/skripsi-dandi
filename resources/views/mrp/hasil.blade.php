@@ -45,10 +45,10 @@
                 <th>No</th>
                 <th>Tanggal</th>
                 <th>Nama Bahan</th>
-                <th>Kebutuhan Kotor</th>
-                <th>Jadwal Penerimaan</th>
-                <th>Jumlah Persediaan</th>
-                <th>Kebutuhan Bersih</th>
+                <th>Kebutuhan Kotor (GR)</th>
+                <th>Jadwal Penerimaan (SR)</th>
+                <th>Jumlah Persediaan (OHI)</th>
+                <th>Kebutuhan Bersih (NR)</th>
                 <th>Pemesanan</th>
                 <th>Status</th>
             </tr>

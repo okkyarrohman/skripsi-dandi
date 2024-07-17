@@ -7,10 +7,10 @@
             <th style="border: 1px solid #000;">No</th>
             <th style="border: 1px solid #000;">Tanggal</th>
             <th style="border: 1px solid #000;">Nama Bahan</th>
-            <th style="border: 1px solid #000;">Kebutuhan Kotor</th>
-            <th style="border: 1px solid #000;">Jadwal Penerimaan</th>
-            <th style="border: 1px solid #000;">Jumlah Persediaan</th>
-            <th style="border: 1px solid #000;">Kebutuhan Bersih</th>
+            <th style="border: 1px solid #000;">Kebutuhan Kotor (GR)</th>
+            <th style="border: 1px solid #000;">Jadwal Penerimaan (SR)</th>
+            <th style="border: 1px solid #000;">Jumlah Persediaan (OHI)</th>
+            <th style="border: 1px solid #000;">Kebutuhan Bersih (NR)</th>
             <th style="border: 1px solid #000;">Pemesanan</th>
             <th style="border: 1px solid #000;">Status</th>
         </tr>
@@ -27,14 +27,17 @@
                     <td style="border: 1px solid #000;">{{ $no++ }}</td>
                     <td style="border: 1px solid #000;">{{ $value->tanggal }}</td>
                     <td style="border: 1px solid #000;">{{ $v->bahan->name }}</td>
-                    <td style="border: 1px solid #000;">{{ $v->jumlah }} {{ $v->satuan }}</td>
-                    <td style="border: 1px solid #000;">{{ $v->bahan->jadwalPenerimaan }}</td>
-                    <td style="border: 1px solid #000;">{{ $v->bahan->stokAkhir }}</td>
+                     @php
+                                $jum =  $value->produkJumlah * $v->jumlah
+                            @endphp
+                    <td style="border: 1px solid #000;">{{ $jum }} {{ $v->satuan }}</td>
+                    <td style="border: 1px solid #000;">0</td>
+                    <td style="border: 1px solid #000;">{{ $v->bahan->stokAkhir }} {{ $v->satuan }}</td>
                     @php
-                        $Bersih =  $v->bahan->stokAkhir - $value->jumlah * $v->jumlah
-                    @endphp
-                    <td style="border: 1px solid #000;">{{ $Bersih }}</td>
-                    <td style="border: 1px solid #000;">{{ $value->jumlah }} Porsi</td>
+                                $Bersih =  $v->bahan->stokAkhir - 0 -  $jum
+                            @endphp
+                    <td style="border: 1px solid #000;">{{ $Bersih }} {{ $v->satuan }}</td>
+                    <td style="border: 1px solid #000;">{{ $value->produkJumlah }} Porsi</td>
                     @php
                         if ($Bersih < 0) {
                             $cetak = "Tidak Cukup";
