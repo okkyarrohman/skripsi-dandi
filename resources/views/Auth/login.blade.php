@@ -35,12 +35,12 @@
                         fill="#004ae1" />
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bold ms-1">Teh Barbar Apps</span>
+                  <span class="app-brand-text demo text-body fw-bold ms-1">BarbarSync</span>
                 </a>
               </div>
               <!-- /Logo -->
               <h4 class="mb-1 pt-2">Welcome</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              <p class="mb-4">Please sign-in to your account and start the knowledge</p>
 
               <form class="mb-3" action="{{ route('login') }}" method="POST">
                 @csrf

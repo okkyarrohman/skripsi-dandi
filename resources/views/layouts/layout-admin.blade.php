@@ -8,7 +8,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Teh Barbar Apps</title>
+    <title>BarbarSync</title>
 
     <meta name="description" content="" />
 
@@ -66,8 +66,7 @@
                                     fill="#7367F0" />
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bold" style="font-size: 100%;">Teh Barbar
-                            Apps</span>
+                        <span class="app-brand-text demo menu-text fw-bold" style="font-size: 100%;">BarbarSync</span>
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -153,7 +152,7 @@
 
 
                             <!-- Notification -->
-                            <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
+                            {{-- <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1"> --}}
                                 {{-- <a
                     class="nav-link dropdown-toggle hide-arrow"
                     href="javascript:void(0);"
@@ -163,7 +162,7 @@
                     <i class="ti ti-bell ti-md"></i>
                     <span class="badge bg-danger rounded-pill badge-notifications">5</span>
                   </a> --}}
-                                <ul class="dropdown-menu dropdown-menu-end py-0">
+                                {{-- <ul class="dropdown-menu dropdown-menu-end py-0">
                                     <li class="dropdown-menu-header border-bottom">
                                         <div class="dropdown-header d-flex align-items-center py-3">
                                             <h5 class="text-body mb-0 me-auto">Notification</h5>
@@ -405,7 +404,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <!--/ Notification -->
 
                             <!-- User -->
@@ -413,20 +412,19 @@
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        {{-- <img src="../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" /> --}}
+                                        <img src="../../assets/img/avatars/female.png" alt class="h-auto rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    {{-- <li>
+                                    <li>
                                         <div class="d-flex">
                                             <div class="flex-shrink-0 me-3">
-                                                <div class="avatar avatar-online">
-                                                    <img src="../../assets/img/avatars/1.png" alt
-                                                        class="h-auto rounded-circle" />
+                                                <div class="avatar avatar-online" style="margin-left: 20px;">
+                                                    <img src="../../assets/img/avatars/female.png" alt class="h-auto rounded-circle" />
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <span class="fw-medium d-block">Dandi Arsyi</span>
+                                                <span class="fw-medium d-block">Hidayatus Sholichah</span>
                                                 <small class="text-muted">Admin</small>
                                             </div>
                                         </div>
@@ -434,7 +432,7 @@
                                     </li>
                                     <li>
                                         <div class="dropdown-divider"></div>
-                                    </li> --}}
+                                    </li>
                                     <li>
                                         <a class="dropdown-item" href="/" target="_blank">
                                             <i class="ti ti-logout me-2 ti-sm"></i>
