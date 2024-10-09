@@ -42,22 +42,14 @@
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{ $bahan->name }}</td>
-<<<<<<< HEAD
-                        <td>{{ $bahan->stokAkhir }} {{ $bahan->satuan }}</td>
-=======
                         <td>{{ number_format($bahan->stokAkhir) }} {{ $bahan->satuan }}</td>
->>>>>>> edfe97a6ebded720bfe69098adfac1cc3a9f07dd
                         <td>
                             <div style="display: flex; justify-content: center;">
                                 <a href="{{ route('bahan.show', ['id' => $bahan->id]) }}" class="btn  btn-delete"
                                     style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Update</a>
                                 <div style="width: 20px;"></div> <!-- Separator -->
-<<<<<<< HEAD
-                                <a href="{{ route('bahan.destroy', ['id' => $bahan->id]) }}" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a> 
-=======
                                 <a href="{{ route('bahan.destroy', ['id' => $bahan->id]) }}" class="btn btn-delete"
                                     style="color:white; margin-left: 10px; background-color: red;">Delete</a>
->>>>>>> edfe97a6ebded720bfe69098adfac1cc3a9f07dd
                             </div>
                         </td>
                     </tr>

@@ -12,19 +12,15 @@
                                 <!--<div style="font-size: 16px; margin-bottom: 10px;">CARI MPS</div>-->
                                 <div style="display: flex; align-items: center; justify-content: space-between;">
                                     <div style="flex: 1; margin-right: 4px;">
-<<<<<<< HEAD
-                                        <div style="font-size: 16px; margin-bottom: 10px;">Tanggal</div>
-                                        <input name="tanggal_awal" class="form-control" type="date" id="html5-date-input">
-                                    </div>
-=======
                                         <div style="font-size: 16px; margin-bottom: 10px;">Tanggal awal</div>
-                                        <input name="tanggal_awal" class="form-control" type="date" id="html5-date-input">
+                                        <input name="tanggal_awal" class="form-control" type="date"
+                                            id="html5-date-input">
                                     </div>
                                     <div style="flex: 1; margin-left: 4px;">
                                         <div style="font-size: 16px; margin-bottom: 10px;">Tanggal akhir</div>
-                                        <input name="tanggal_akhir" class="form-control" type="date" id="html5-date-input">
+                                        <input name="tanggal_akhir" class="form-control" type="date"
+                                            id="html5-date-input">
                                     </div>
->>>>>>> edfe97a6ebded720bfe69098adfac1cc3a9f07dd
                                 </div>
 
                                 {{-- <div class="input-group input-group-merge">
@@ -79,7 +75,8 @@
                                 <!--<a href="{{ route('mps.show', ['id' => $mps->id]) }}" class="btn  btn-delete"-->
                                 <!--    style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Update</a>-->
                                 <div style="width: 20px;"></div> <!-- Separator -->
-                                <a href="{{ route('mps.destroy', ['id' => $mps->id]) }}" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a> 
+                                <a href="{{ route('mps.destroy', ['id' => $mps->id]) }}" class="btn btn-delete"
+                                    style="color:white; margin-left: 10px; background-color: red;">Delete</a>
                             </div>
                         </td>
                     </tr>
