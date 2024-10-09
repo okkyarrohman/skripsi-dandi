@@ -46,7 +46,11 @@
                                 <a href="{{ route('menu.show', ['id' => $menu->id]) }}" class="btn  btn-delete"
                                     style="color:white; margin-left: 10px; background-color: rgb(0, 106, 255);">Update</a>
                                 <div style="width: 20px;"></div> <!-- Separator -->
+<<<<<<< HEAD
                                  <a href="{{ route('menu.destroy', ['id' => $menu->id]) }}" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a> 
+=======
+                                <a href="{{ route('menu.destroy', ['id' => $menu->id]) }}" class="btn btn-delete" style="color:white; margin-left: 10px; background-color: red;">Delete</a>
+>>>>>>> edfe97a6ebded720bfe69098adfac1cc3a9f07dd
                             </div>
                         </td>
                     </tr>

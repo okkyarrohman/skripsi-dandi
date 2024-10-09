@@ -19,6 +19,7 @@
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                                 <select class="form-select" name="satuan" id="exampleFormControlSelect1" aria-label="Default select example">
                                     <option selected="{{$bahans->satuan}}">{{$bahans->satuan}}</option>
+<<<<<<< HEAD
   <option value="Sachet">Sachet</option>
                                     <option value="Pieces (Pcs)">Pieces (Pcs)</option>
                                     <option value="Gram (G)">Gram (G)</option>
@@ -26,6 +27,12 @@
                                     <option value="Liter (L)">Liter (L)</option>
                                     <option value="MiliLiter (Ml)">MiliLiter (Ml)</option>
                                     <option value="Bottle">Bottle</option>
+=======
+ <option value="Sachet (Pcs)">Sachet (Pcs)</option>
+                                    <option value="Gram (G)">Gram (G)</option>
+                                    <option value="Kilogram (Kg)">Kilogram (Kg)</option>
+                                    <option value="Liter (L)">Liter (L)</option>
+>>>>>>> edfe97a6ebded720bfe69098adfac1cc3a9f07dd
                                     <option value="Buah">Buah</option>
                                 </select>
                             </div>
@@ -45,7 +52,11 @@
                             <!--</div>-->
                         </div>
                         <div style="flex: 1;">
+<<<<<<< HEAD
                            
+=======
+
+>>>>>>> edfe97a6ebded720bfe69098adfac1cc3a9f07dd
                         </div>
                     </div>
 

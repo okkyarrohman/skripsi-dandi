@@ -36,7 +36,11 @@
                     <td style="border: 1px solid #000;">0</td>
                     <td style="border: 1px solid #000;">{{ $v->bahan->stokAkhir }} {{ $v->satuan }}</td>
                     @php
+<<<<<<< HEAD
                                 $Bersih =   $v->bahan->stokAkhir - $jum - 0
+=======
+                                $Bersih =  $v->bahan->stokAkhir - 0 -  $jum
+>>>>>>> edfe97a6ebded720bfe69098adfac1cc3a9f07dd
                             @endphp
                     <td style="border: 1px solid #000;">{{ $Bersih }} {{ $v->satuan }}</td>
                     <td style="border: 1px solid #000;">{{ $value->produkJumlah }} Porsi</td>

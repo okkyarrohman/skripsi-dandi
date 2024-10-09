@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('bom_id')->nullable();
             $table->unsignedBigInteger('menu_id')->nullable();
             $table->date('tanggal');
-            $table->string('jumlah');
+            $table->string('jumlah')->nullable();
             $table->string('produkJumlah');
             $table->timestamps();
 
