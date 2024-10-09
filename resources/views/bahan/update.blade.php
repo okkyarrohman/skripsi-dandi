@@ -15,25 +15,17 @@
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                                 <input type="text" name="name" value="{{$bahans->name}}" class="form-control" placeholder="Nama..." aria-describedby="basic-addon-search31">
                             </div>
-                            <div style="font-size: 16px; margin-bottom: 10px;">Estimasi Jadwal Penerimaan</div>
-                            <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                                <input class="form-control" name="jadwalPenerimaan" value="{{$bahans->jadwalPenerimaan}}" type="date" id="html5-date-input">
-                            </div>
-                            <div style="font-size: 16px; margin-bottom: 10px;">Jadwal Kedatangan</div>
-                            <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
-                                <input class="form-control" name="jadwalKedatangan" type="date" value="{{$bahans->jadwalKedatangan}}" id="html5-date-input">
-                            </div>
-                        </div>
-                        <div style="flex: 1;">
-                            <div style="font-size: 16px; margin-bottom: 10px;">Satuan</div>
+                             <div style="font-size: 16px; margin-bottom: 10px;">Satuan</div>
                             <div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">
                                 <select class="form-select" name="satuan" id="exampleFormControlSelect1" aria-label="Default select example">
                                     <option selected="{{$bahans->satuan}}">{{$bahans->satuan}}</option>
-                                    <option value="Pcs">Pcs</option>
-                                    <option value="Gram">Gram</option>
-                                    <option value="Kg">Kg</option>
-                                    <option value="Ml">Ml</option>
-                                    <option value="Butir">Butir</option>
+  <option value="Sachet">Sachet</option>
+                                    <option value="Pieces (Pcs)">Pieces (Pcs)</option>
+                                    <option value="Gram (G)">Gram (G)</option>
+                                    <option value="Kilogram (Kg)">Kilogram (Kg)</option>
+                                    <option value="Liter (L)">Liter (L)</option>
+                                    <option value="MiliLiter (Ml)">MiliLiter (Ml)</option>
+                                    <option value="Bottle">Bottle</option>
                                     <option value="Buah">Buah</option>
                                 </select>
                             </div>
@@ -43,6 +35,17 @@
                                 <span style="margin: 0 6px;">Dari</span>
                                 <input type="text" readonly name="stokAwal" value="{{$bahans->stokAwal}}"  class="form-control" placeholder="Stok awal..." aria-describedby="basic-addon-search31">
                             </div>
+                            <!--<div style="font-size: 16px; margin-bottom: 10px;">Estimasi Jadwal Penerimaan</div>-->
+                            <!--<div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">-->
+                            <!--    <input class="form-control" name="jadwalPenerimaan" value="{{$bahans->jadwalPenerimaan}}" type="date" id="html5-date-input">-->
+                            <!--</div>-->
+                            <!--<div style="font-size: 16px; margin-bottom: 10px;">Jadwal Kedatangan</div>-->
+                            <!--<div class="input-group input-group-merge" style="max-width: 400px; margin-bottom: 10px;">-->
+                            <!--    <input class="form-control" name="jadwalKedatangan" type="date" value="{{$bahans->jadwalKedatangan}}" id="html5-date-input">-->
+                            <!--</div>-->
+                        </div>
+                        <div style="flex: 1;">
+                           
                         </div>
                     </div>
 

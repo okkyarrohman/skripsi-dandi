@@ -6,11 +6,12 @@
         <tr>
             <th style="border: 1px solid #000;">No</th>
             <th style="border: 1px solid #000;">Tanggal</th>
+            <th style="border: 1px solid #000;">Nama Menu</th>
             <th style="border: 1px solid #000;">Nama Bahan</th>
-            <th style="border: 1px solid #000;">Kebutuhan Kotor</th>
-            <th style="border: 1px solid #000;">Jadwal Penerimaan</th>
-            <th style="border: 1px solid #000;">Jumlah Persediaan</th>
-            <th style="border: 1px solid #000;">Kebutuhan Bersih</th>
+            <th style="border: 1px solid #000;">Kebutuhan Kotor (GR)</th>
+            <th style="border: 1px solid #000;">Jadwal Penerimaan (SR)</th>
+            <th style="border: 1px solid #000;">Jumlah Persediaan (OHI)</th>
+            <th style="border: 1px solid #000;">Kebutuhan Bersih (NR)</th>
             <th style="border: 1px solid #000;">Pemesanan</th>
             <th style="border: 1px solid #000;">Status</th>
         </tr>
@@ -25,6 +26,7 @@
             <tr>
                 <td style="border: 1px solid #000;">{{ $key + 1 }}</td>
                 <td style="border: 1px solid #000;">{{ $value['tanggal'] }}</td>
+                <td style="border: 1px solid #000;">{{ $value['menu'] }}</td>
                 <td style="border: 1px solid #000;">{{ $value['name'] }}</td>
                 <td style="border: 1px solid #000;">{{ $value['jumlahBahan'] }}</td>
                 <td style="border: 1px solid #000;">{{ $value['jadwalPenerimaan'] }}</td>

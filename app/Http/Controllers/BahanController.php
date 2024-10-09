@@ -29,11 +29,9 @@ class BahanController extends Controller
         $request->validate([
             'name' => 'required',
             'stokAwal' => 'required',
-            'jadwalPenerimaan' => 'required',
         ], [
             'name.required' => 'Nama Wajib Diisi',
             'stokAwal.required' => 'Stok Awal Wajib Diisi',
-            'jadwalPenerimaan.required' => 'Masukkan Jadwal Penerimaan',
         ]);
 
         $bahans = new Bahan();
@@ -41,7 +39,7 @@ class BahanController extends Controller
         $bahans->satuan = $request->input('satuan');
         $bahans->stokAwal = $request->input('stokAwal');
         $bahans->stokAkhir = $request->input('stokAkhir', $request->input('stokAwal')); // Menggunakan default value dari stokAwal jika stokAkhir tidak diisi
-        $bahans->jadwalPenerimaan = $request->input('jadwalPenerimaan');
+
         $bahans->save();
 
 
@@ -69,8 +67,6 @@ class BahanController extends Controller
         $bahans->satuan = $request->input('satuan');
         $bahans->stokAwal = $request->input('stokAwal');
         $bahans->stokAkhir = $request->input('stokAkhir', $request->input('stokAwal')); // Menggunakan default value dari stokAwal jika stokAkhir tidak diisi
-        $bahans->jadwalPenerimaan = $request->input('jadwalPenerimaan');
-        $bahans->jadwalKedatangan = $request->input('jadwalKedatangan');
         $bahans->save();
 
 

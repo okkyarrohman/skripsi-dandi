@@ -44,11 +44,12 @@
             <tr>
                 <th>No</th>
                 <th>Tanggal</th>
+                 <th>Nama Menu</th>
                 <th>Nama Bahan</th>
-                <th>Kebutuhan Kotor</th>
-                <th>Jadwal Penerimaan</th>
-                <th>Jumlah Persediaan</th>
-                <th>Kebutuhan Bersih</th>
+                <th>Kebutuhan Kotor (GR)</th>
+                <th>Jadwal Penerimaan (SR)</th>
+                <th>Jumlah Persediaan (OHI)</th>
+                <th>Kebutuhan Bersih (NR)</th>
                 <th>Pemesanan</th>
                 <th>Status</th>
             </tr>
@@ -64,6 +65,7 @@
                     <tr>
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $value['tanggal'] }}</td>
+                        <td>{{ $value['menu'] }}</td>
                         <td>{{ $value['name'] }}</td>
                         <td>{{ $value['jumlahBahan'] }}</td>
                         <td>{{ $value['jadwalPenerimaan'] }}</td>

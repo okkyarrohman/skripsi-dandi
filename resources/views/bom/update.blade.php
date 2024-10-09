@@ -35,12 +35,14 @@
                             <select class="form-select" name="satuan" id="exampleFormControlSelect1"
                                 aria-label="Default select example">
                                 <option value="{{ $boms->satuan }}">{{ $boms->satuan }}</option>
-                                <option value="Pcs">Pcs</option>
-                                <option value="Gram">Gram</option>
-                                <option value="Kg">Kg</option>
-                                <option value="Ml">Ml</option>
-                                <option value="Butir">Butir</option>
-                                <option value="Buah">Buah</option>
+                                                                     <option value="Sachet">Sachet</option>
+                                    <option value="Pieces (Pcs)">Pieces (Pcs)</option>
+                                    <option value="Gram (G)">Gram (G)</option>
+                                    <option value="Kilogram (Kg)">Kilogram (Kg)</option>
+                                    <option value="Liter (L)">Liter (L)</option>
+                                    <option value="MiliLiter (Ml)">MiliLiter (Ml)</option>
+                                    <option value="Bottle">Bottle</option>
+                                    <option value="Buah">Buah</option>
                             </select>
                         </div>
                         <span>Jumlah</span>

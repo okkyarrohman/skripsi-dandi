@@ -35,12 +35,12 @@
                         fill="#004ae1" />
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bold ms-1">Teh Barbar Apps</span>
+                  <span class="app-brand-text demo text-body fw-bold ms-1">BarbarSync</span>
                 </a>
               </div>
               <!-- /Logo -->
               <h4 class="mb-1 pt-2">Welcome</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              <p class="mb-4">Please sign-in to your account and start the knowledge</p>
 
               <form class="mb-3" action="{{ route('login') }}" method="POST">
                 @csrf
@@ -57,9 +57,9 @@
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">Password</label>
-                    <a href="auth-forgot-password-basic.html">
-                      <small style="color:#004ae1;">Forgot Password?</small>
-                    </a>
+                    <!--<a href="auth-forgot-password-basic.html">-->
+                    <!--  <small style="color:#004ae1;">Forgot Password?</small>-->
+                    <!--</a>-->
                   </div>
                   <div class="input-group input-group-merge">
                     <input

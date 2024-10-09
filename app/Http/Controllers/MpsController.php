@@ -9,30 +9,31 @@ use Illuminate\Http\Request;
 
 class MpsController extends Controller
 {
-    public function index(Request $request){
-        $boms = Bom::all();
-        $menus = Menu::all();
+public function index(Request $request) {
+    $boms = Bom::all();
+    $menus = Menu::all();
 
+    // Retrieve the start date from the request input
+    $startDate = $request->input('tanggal_awal');
 
-        $bomId = $request->input('bom_id');
-        $startDate = $request->input('tanggal_awal');
-        $endDate = $request->input('tanggal_akhir');
+    // Initialize the MPS query
+    $mps = Mps::query();
 
-        $mps = Mps::query();
-
-        if ($bomId) {
-            $mps->where('bom_id', $bomId);
-        }
-
-        if ($startDate && $endDate) {
-            $mps->whereBetween('tanggal', [$startDate, $endDate]);
-        }
-
-        $mps = $mps->get();
-
-        // Kembalikan data ke view
-        return view('mps.index', compact( 'mps', 'boms','menus' ));
+    // If a start date is provided, filter the records that match or are after the start date
+    if ($startDate) {
+        $mps->whereDate('tanggal', '>=', $startDate);
     }
+
+    // Execute the query and retrieve the results
+    $mps = $mps->get();
+
+    // Return the data to the view
+    return view('mps.index', compact('mps', 'boms', 'menus'));
+}
+
+
+
+
 
 
     // public function create(Request $request){
@@ -66,19 +67,16 @@ class MpsController extends Controller
         $request->validate([
             'menu_id' => 'required',
             'tanggal' => 'required',
-            'jumlah' => 'required',
             'produkJumlah' => 'required',
         ], [
             'menu_id.required' => 'Menu Wajib Dipilih',
             'tanggal.required' => 'Satuan Wajib Diisi',
-            'jumlah.required' => 'Jumlah Perkiraan Permintaan Harian Wajib Diisi',
             'produkJumlah.required' => 'Jumlah Produksi Wajib Diisi'
         ]);
 
         Mps::create([
             'menu_id' => $request->input('menu_id'),
             'tanggal' => $request->input('tanggal'),
-            'jumlah' => $request->input('jumlah'),
             'produkJumlah' => $request->input('produkJumlah'),
         ]);
 
@@ -105,12 +103,10 @@ class MpsController extends Controller
         $request->validate([
             'menu_id' => 'required',
             'tanggal' => 'required',
-            'jumlah' => 'required',
             'produkJumlah' => 'required',
         ], [
             'menu_id.required' => 'Menu Wajib Dipilih',
             'tanggal.required' => 'Satuan Wajib Diisi',
-            'jumlah.required' => 'Jumlah Perkiraan Permintaan Harian Wajib Diisi',
             'produkJumlah.required' => 'Jumlah Produksi Wajib Diisi'
         ]);
 
@@ -119,7 +115,6 @@ class MpsController extends Controller
         $mps->update([
             'menu_id' => $request->input('menu_id'),
             'tanggal' => $request->input('tanggal'),
-            'jumlah' => $request->input('jumlah'),
             'produkJumlah' => $request->input('produkJumlah'),
         ]);
 

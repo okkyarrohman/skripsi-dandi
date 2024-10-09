@@ -6,7 +6,7 @@
                 <div class="card-body" style="justify-content: left; display: flex; align-items: center;">
                     <div style="flex-grow: 1; display: flex; justify-content: space-between;">
                         <div style="width: 60%;">
-                            <div style="font-size: 24px; margin-bottom: 10px;">Detail Menu</div>
+                            <div style="font-size: 24px; margin-bottom: 10px;">Update Menu</div>
                             <hr style="border: 1px solid #868181; margin-bottom: 10px;">
                             <form class="form-horizontal" action="{{ route('menu.update', ['id' => $menus->id]) }}"
                                 method="POST" enctype="multipart/form-data">
