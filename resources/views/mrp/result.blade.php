@@ -1,4 +1,5 @@
-<table id="table-register" class="table table-bordered table-hover" style="margin: 5% auto; width: 80%; border: 1px solid #000; border-collapse: collapse;">
+<table id="table-register" class="table table-bordered table-hover"
+    style="margin: 5% auto; width: 80%; border: 1px solid #000; border-collapse: collapse;">
     <thead>
         <tr>
             <th colspan="10" style="text-align: center; border: 1px solid #000;">DATA MRP RESULT</th>
@@ -18,43 +19,39 @@
     </thead>
     <tbody>
 
-        @if($mps->count() > 0)
-        @php
-            $no = 1
-        @endphp
-        @foreach ($mps as $key => $value)
-            @foreach ($value->menus->boms as $k => $v)
-                <tr>
-                    <td style="border: 1px solid #000;">{{ $no++ }}</td>
-                    <td style="border: 1px solid #000;">{{ $value->tanggal }}</td>
-                     <td style="border: 1px solid #000;">{{ $v->menu->name }}</td>
-                    <td style="border: 1px solid #000;">{{ $v->bahan->name }}</td>
-                     @php
-                                $jum =  $value->produkJumlah * $v->jumlah
-                            @endphp
-                    <td style="border: 1px solid #000;">{{ $jum }} {{ $v->satuan }}</td>
-                    <td style="border: 1px solid #000;">0</td>
-                    <td style="border: 1px solid #000;">{{ $v->bahan->stokAkhir }} {{ $v->satuan }}</td>
-                    @php
-<<<<<<< HEAD
-                                $Bersih =   $v->bahan->stokAkhir - $jum - 0
-=======
-                                $Bersih =  $v->bahan->stokAkhir - 0 -  $jum
->>>>>>> edfe97a6ebded720bfe69098adfac1cc3a9f07dd
-                            @endphp
-                    <td style="border: 1px solid #000;">{{ $Bersih }} {{ $v->satuan }}</td>
-                    <td style="border: 1px solid #000;">{{ $value->produkJumlah }} Porsi</td>
-                    @php
-                        if ($Bersih < 0) {
-                            $cetak = "Tidak Cukup";
-                        }else {
-                            $cetak = "Cukup";
-                        };
-                    @endphp
-                    <td style="border: 1px solid #000;">{{ $cetak }}</td>
-                </tr>
+        @if ($mps->count() > 0)
+            @php
+                $no = 1;
+            @endphp
+            @foreach ($mps as $key => $value)
+                @foreach ($value->menus->boms as $k => $v)
+                    <tr>
+                        <td style="border: 1px solid #000;">{{ $no++ }}</td>
+                        <td style="border: 1px solid #000;">{{ $value->tanggal }}</td>
+                        <td style="border: 1px solid #000;">{{ $v->menu->name }}</td>
+                        <td style="border: 1px solid #000;">{{ $v->bahan->name }}</td>
+                        @php
+                            $jum = $value->produkJumlah * $v->jumlah;
+                        @endphp
+                        <td style="border: 1px solid #000;">{{ $jum }} {{ $v->satuan }}</td>
+                        <td style="border: 1px solid #000;">0</td>
+                        <td style="border: 1px solid #000;">{{ $v->bahan->stokAkhir }} {{ $v->satuan }}</td>
+                        @php
+                            $Bersih = $v->bahan->stokAkhir - 0 - $jum;
+                        @endphp
+                        <td style="border: 1px solid #000;">{{ $Bersih }} {{ $v->satuan }}</td>
+                        <td style="border: 1px solid #000;">{{ $value->produkJumlah }} Porsi</td>
+                        @php
+                            if ($Bersih < 0) {
+                                $cetak = 'Tidak Cukup';
+                            } else {
+                                $cetak = 'Cukup';
+                            }
+                        @endphp
+                        <td style="border: 1px solid #000;">{{ $cetak }}</td>
+                    </tr>
+                @endforeach
             @endforeach
-        @endforeach
         @else
             <tr>
                 <td class="text-center" colspan="10" style="border: 1px solid #000;">Data MRP tidak ditemukan</td>
