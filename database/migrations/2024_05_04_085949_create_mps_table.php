@@ -16,14 +16,13 @@ return new class extends Migration
             $table->unsignedBigInteger('bom_id')->nullable();
             $table->unsignedBigInteger('menu_id')->nullable();
             $table->date('tanggal');
-            $table->string('jumlah')->nullable();
-            $table->string('produkJumlah');
+            $table->integer('jumlah')->nullable();
+            $table->integer('produkJumlah');
             $table->timestamps();
 
             $table->foreign('bom_id')->references('id')->on('boms')->onDelete('cascade');
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
         });
-
     }
 
     /**
